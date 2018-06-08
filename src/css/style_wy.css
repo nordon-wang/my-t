@@ -1,0 +1,523 @@
+/*.module:hover{
+  border: 2px #f00 dashed;
+  box-shadow: 0px 0px 20px 3px #000;
+}*/
+
+/*.module{
+  z-index: 9;
+}*/
+
+.module .ui-resizable-ne::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border: 1px #52aeff solid;
+  background: #fff;
+  display: block;
+  float: right;
+  border-radius: 50%;
+  margin-right: 1px;
+}
+
+.module .ui-resizable-n::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border: 1px #52aeff solid;
+  background: #fff;
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+.module .ui-resizable-sw::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border: 1px #52aeff solid;
+  background: #fff;
+  display: block;
+  float: left;
+  border-radius: 50%;
+  margin-left: 1px;
+  margin-top: -2px;
+}
+
+.module .ui-resizable-nw::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border: 1px #52aeff solid;
+  background: #fff;
+  display: block;
+  float: left;
+  border-radius: 50%;
+  margin-left: 1px;
+}
+
+.module .ui-resizable-se::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border: 1px #52aeff solid;
+  background: #fff;
+  display: block;
+  float: right;
+  border-radius: 50%;
+  margin-right: -5px;
+  margin-top: 11px;
+}
+
+.module .ui-resizable-w::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border: 1px #52aeff solid;
+  background: #fff;
+  display: block;
+  float: right;
+  border-radius: 50%;
+  margin-right: -6px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(1px, -6px);
+}
+
+.module .ui-resizable-e::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border: 1px #52aeff solid;
+  background: #fff;
+  display: block;
+  float: right;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: -5px;
+  transform: translateY(-6px);
+}
+
+.module .ui-resizable-s::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border: 1px #52aeff solid;
+  background: #fff;
+  display: block;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin-top: -5px;
+}
+
+.ui-icon {
+  overflow: visible;
+}
+
+.ui-resizable-n {
+  border-bottom: 1px #52aeff solid !important;
+}
+
+.ui-resizable-e {
+  border-left: 1px #52aeff solid !important;
+}
+
+.module .ui-resizable-s {
+  border-top: 1px #52aeff solid !important;
+}
+
+.ui-resizable-w {
+  border-right: 1px #52aeff solid !important;
+}
+
+div.public_edit ul {
+  display: flex;
+}
+
+div.public_edit ul>li:first-child {
+  min-width: 77px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wDefaultBorder {
+  /* border: 1px solid transparent; */
+}
+
+div.setOne p strong, div.setOne .myBorder strong {
+  box-sizing: border-box;
+  padding-left: 12px;
+}
+
+
+.msgedit strong {
+  float: left;
+  height: 40px;
+  width: 100px;
+  line-height: 40px;
+  text-align: left;
+  box-sizing: border-box;
+  padding-left: 12px;
+}
+
+.my-msg-module .setOne p {
+  width: 50%;
+}
+
+.my-msg-module .setOne {
+  width: 100%;
+  min-width: 100%;
+}
+
+.public-form-styles {
+  margin-top: 12px;
+}
+
+.public-form-styles b {
+  float: left;
+  height: 40px;
+  width: 100px;
+  line-height: 40px;
+  text-align: left;
+  box-sizing: border-box;
+  padding-left: 12px;
+}
+
+.public-form-styles .el-row {
+  margin-top: 12px;
+  text-align: left;
+}
+
+.public-form-styles .myBorder {
+  width: 50% !important;
+}
+
+.public-form-styles .row_back_frame {
+  width: 100%;
+}
+
+.public-form-styles div.row_back_frame {
+  width: 70%;
+}
+
+.my-msg-module .el-dialog__body {
+  padding: 0px 20px;
+}
+
+.my-msg-module .el-dialog__header {
+  padding-bottom: 0;
+}
+
+#pane-formedits {
+  overflow-x: auto;
+}
+
+div.public-form-styles span.el-input-number__increase, div.public-form-styles span.el-input-number__decrease {
+  height: 30px;
+  margin-top: 1px;
+}
+
+div.public-form-styles div.el-tabs__content {
+  overflow: hidden;
+  height: auto;
+}
+
+/* body::-webkit-scrollbar{width:8px;}
+body::-webkit-scrollbar-track{background-color:#bee1eb;}
+body::-webkit-scrollbar-thumb{background-color:#00aff0;}
+body::-webkit-scrollbar-thumb:hover {background-color:#9c3}
+body::-webkit-scrollbar-thumb:active {background-color:#00aff0} */
+
+.el-tabs__content {
+  height: 430px;
+  padding-bottom: 12px;
+  overflow-y: auto;
+}
+
+div.setOne {
+  margin-top: 6px;
+  height: 34px;
+}
+
+div.setOne p, div.setOne p strong {
+  height: 100%;
+}
+
+div.setOne p {
+  width: 20%;
+}
+
+div.setOne p input {
+  height: 32px;
+}
+
+div.setOne .myInput div span {
+  height: 30px;
+  margin-top: 1px;
+}
+
+div.setOne .myDistance div span {
+  height: 30px;
+  margin-top: 3px;
+}
+
+div.setOne .myCloor .el-color-picker {
+  height: 34px;
+}
+
+div.setOne .myCloor .el-color-picker .el-color-picker__trigger {
+  height: 34px;
+  width: 34px;
+}
+
+div.setOne p strong {
+  width: 30%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 90px;
+}
+
+div.row_back_frame {
+  width: 20%;
+  height: 34px;
+}
+
+div.row_back_frame .row_back {
+  width: 34px;
+  height: 34px;
+  overflow: hidden;
+}
+
+div.setOne div.myBorder {
+  height: 34px;
+}
+
+div.setOne .myBorder .title {
+  margin-top: 0;
+}
+
+div.setOne .myBorder input {
+  height: 34px;
+}
+
+div.setOne .myBorder .el-color-picker {
+  height: 34px;
+}
+
+div.setOne .myBorder .el-color-picker .el-color-picker__trigger {
+  height: 34px;
+  width: 34px;
+}
+
+div.setOne .myBorder .el-input-number__increase {
+  margin-top: 2px;
+  height: 16px;
+}
+
+div.setOne .myBorder .el-input-number__decrease {
+  height: 16px;
+  margin-bottom: 2px;
+}
+
+/* computed_right */
+
+.computed_right input {
+  height: 32px;
+}
+
+.computed_right p:not(.myCloor) span {
+  height: 30px;
+  margin-top: 2px;
+}
+
+/* 底部的布局 几个类 */
+
+.btm_2cols {
+  padding-left: 36%;
+}
+
+.btm_3cols {
+  padding-left: 26%;
+}
+
+.btm_4cols {
+  padding-left: 16%;
+}
+
+.btm_0cols {
+  padding-left: 30%;
+}
+
+/* .module:hover{
+  z-index: 2;
+} */
+
+/* #imgsmodel div.index_Highlight_hover{
+	box-shadow: 0px 0 3px 3px #f00 ;
+} */
+
+.index_Highlight_hover_out .index_Highlight_hover {
+  box-shadow: 0px 0 3px 3px #f00;
+}
+
+div.el-message {
+  top: 60px;
+}
+
+span.el-color-picker__color {
+  overflow: hidden;
+}
+
+div.el-pagination {
+  white-space: pre-wrap;
+}
+
+/* 页码 内部的圆圈隐藏 */
+
+.module #my_pages .ui-resizable-ne::after,.module  #imgsmodel .ui-resizable-ne::after, .fixedPosition  .ui-resizable-ne::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border: 0px #52aeff solid;
+  background: transparent;
+  display: none;
+  margin: 0 auto;
+  border-radius: 0;
+}
+
+.module #my_pages .ui-resizable-n::after,.module  #imgsmodel .ui-resizable-n::after, .fixedPosition  .ui-resizable-n::after {
+  content: '';
+  width: 0;
+  height: 8px;
+  border: 0px #52aeff solid;
+  background: transparent;
+  display: none;
+  margin: 0 auto;
+  border-radius: 0;
+}
+
+.module #my_pages .ui-resizable-sw::after,.module  #imgsmodel .ui-resizable-sw::after, .fixedPosition  .ui-resizable-sw::after {
+  content: '';
+  width: 0;
+  height: 8px;
+  border: 0px #52aeff solid;
+  background: transparent;
+  display: none;
+  margin: 0 auto;
+  border-radius: 0;
+}
+
+.module #my_pages .ui-resizable-nw::after,.module  #imgsmodel .ui-resizable-nw::after, .fixedPosition  .ui-resizable-nw::after {
+  content: '';
+  width: 0;
+  height: 8px;
+  border: 0px #52aeff solid;
+  background: transparent;
+  display: none;
+  margin: 0 auto;
+  border-radius: 0;
+}
+/* fixedPosition  */
+.module #my_pages .ui-resizable-se::after,.module  #imgsmodel .ui-resizable-se::after, .fixedPosition  .ui-resizable-se::after {
+  content: '';
+  width: 0;
+  height: 8px;
+  border: 0px #52aeff solid;
+  background: transparent;
+  display: none;
+  margin: 0 auto;
+  border-radius: 0;
+}
+
+.module #my_pages .ui-resizable-w::after,.module  #imgsmodel .ui-resizable-w::after, .fixedPosition  .ui-resizable-w::after {
+  content: '';
+  width: 0;
+  height: 8px;
+  border: 0px #52aeff solid;
+  background: transparent;
+  display: none;
+  margin: 0 auto;
+  border-radius: 0;
+}
+
+.module #my_pages .ui-resizable-e::after,.module  #imgsmodel .ui-resizable-e::after, .fixedPosition  .ui-resizable-e::after {
+  content: '';
+  width: 0;
+  height: 8px;
+  border: 0px #52aeff solid;
+  background: transparent;
+  display: none;
+  margin: 0 auto;
+  border-radius: 0;
+}
+
+.module #my_pages .ui-resizable-s::after,.module  #imgsmodel .ui-resizable-s::after, .fixedPosition  .ui-resizable-s::after {
+  content: '';
+  width: 0;
+  height: 8px;
+  border: 0px #52aeff solid;
+  background: transparent;
+  display: none;
+  margin: 0 auto;
+  border-radius: 0;
+}
+
+.module #my_pages .ui-resizable-n, .module  #imgsmodel .ui-resizable-n, .fixedPos .ui-resizable-n {
+  border-bottom: 0 #52aeff solid !important;
+}
+
+.module #my_pages .ui-resizable-e, .module  #imgsmodel .ui-resizable-e, .fixedPos .ui-resizable-e {
+  border-left: 0 #52aeff solid !important;
+}
+
+.module #my_pages .ui-resizable-s, .module  #imgsmodel .ui-resizable-s, .fixedPos .ui-resizable-s {
+  border-top: 0 #52aeff solid !important;
+}
+
+.module #my_pages .ui-resizable-w, .module  #imgsmodel .ui-resizable-w, .fixedPos .ui-resizable-w {
+  border-right: 0 #52aeff solid !important;
+}
+
+div.top-set .myInput div span{
+  margin-top: 1px;
+}
+
+div[name='basic_links'] > div.index_Highlight_hover{
+  box-shadow: 0px 0 3px 3px #f00;
+}
+
+.outMouseHight > div.index_Highlight_hover, .outMouseHight > .index_Highlight{
+  box-shadow: 0px 0 3px 3px #f00;
+}
+
+/* 微软雅黑,"Microsoft YaHei",impact,微软雅黑 */
+/* 微软雅黑,"Microsoft YaHei",Georgia,微软雅黑 */
+/* 微软雅黑,"Microsoft YaHei","arial black",微软雅黑 */
+.codeEdit .el-alert__content *{
+  user-select: text;
+}
+
+/* 修改tabs的样式 */
+
+.self-tabs_setting .el-tabs--border-card>.el-tabs__content{
+  padding: 0 15px;
+}
+
+.btm_con_2cols .el-tabs--border-card>.el-tabs__content{
+  padding-left: 36%;
+}
+
+.btm_con_3cols .el-tabs--border-card>.el-tabs__content{
+  padding-left: 26%;
+}
+
+.btm_con_4cols .el-tabs--border-card>.el-tabs__content{
+  padding-left: 16%;
+}
+
+.btm_con_0cols .el-tabs--border-card>.el-tabs__content{
+  padding-left: 30%;
+}

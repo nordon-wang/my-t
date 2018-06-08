@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>T云建站系统</title>
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=dpBNyIO3vQGL9YDYyzwgclGUnEffPgGi"></script>
+    <% if(process.env.NODE_ENV === 'development'){%>
+    <link rel="stylesheet" href="static/css/pace-theme-barber-shop.css">
+    <link rel="stylesheet" href="static/css/index_loading.css">
+    <script src="static/js/pace.js"></script>
+    <% }else{ %>
+    <link rel="stylesheet" href="/newapi/view/home/index/static/css/pace-theme-barber-shop.css">
+    <link rel="stylesheet" href="/newapi/view/home/index/static/css/index_loading.css">
+    <script src="/newapi/view/home/index/static/js/pace.js"></script>
+    
+    <% } %>
+
+
+    <script>
+      var startTime = Date.now();
+      //定义全局变量去接收服务器信息
+      var my_theme_id = '{$theme_id}';
+      var my_username = '{$username}';
+      var my_host = '{$host}';
+      var rank = '{$rank}';
+    </script>
+  </head>
+
+  <body>
+    <div class="align_line"></div>
+    <div id="app"></div>
+
+    <div class="init_mongolia_layer">
+      <div class="logo-animate">
+        <% if(process.env.NODE_ENV === 'development'){%>
+        <div class="arrangement1 zhuan1" style="background-image:url('/static/image/banner-znpc-icon-03.png');"></div>
+        <div class="arrangement2 zhuan2" style="background-image:url('/static/image/banner-znpc-icon-02.png');"></div>
+        <div class="arrangement3 zhuan3" style="background-image:url('/static/image/banner-znpc-icon-01.png');"></div>
+        <% }else{ %>
+        <div class="arrangement1 zhuan1" style="background-image:url('/newapi/view/home/index/static/image/banner-znpc-icon-03.png');"></div>
+        <div class="arrangement2 zhuan2" style="background-image:url('/newapi/view/home/index/static/image/banner-znpc-icon-02.png');"></div>
+        <div class="arrangement3 zhuan3" style="background-image:url('/newapi/view/home/index/static/image/banner-znpc-icon-01.png');"></div>
+        <% } %>
+        <div class="arrangement4">
+          <% if(process.env.NODE_ENV === 'development'){%>
+          <img src="static/image/banner-znpc-icon-04.png"></div>
+          <div class="arrangement5" style="background-image:url('/static/image/banner-znpc-icon-logo.png');"></div>
+          <% }else{ %>
+          <img src="/newapi/view/home/index/static/image/banner-znpc-icon-04.png"></div>
+          <div class="arrangement5" style="background-image:url('/newapi/view/home/index/static/image/banner-znpc-icon-logo.png');"></div>
+          <% } %>
+        <p>首次加载稍慢,请稍等~</p>
+      </div>
+
+    </div>
+
+  </body>
+</html>

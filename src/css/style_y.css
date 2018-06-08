@@ -1,0 +1,5921 @@
+/*谷歌兼容*/
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: #d7d7d7;
+}
+
+::-webkit-scrollbar-track {
+    background: #f2f2f2;
+}
+
+body {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -khtml-user-select: none;
+    /*  scrollbar-arrow-color: #f4ae21;
+  scrollbar-face-color: #333;
+  scrollbar-3dlight-color: #666;
+  scrollbar-highlight-color: #666;
+  scrollbar-shadow-color: #999;
+  scrollbar-darkshadow-color: #666;
+  scrollbar-track-color: #666;
+  scrollbar-base-color:#f8f8f8;*/
+    overflow: hidden;
+    padding-right:0px !important;
+}
+
+.topBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #fff;
+    border-bottom: 1px #ccc solid;
+    z-index: 1010;
+}
+
+.bottomBar {
+    width: 100%;
+    height: 200px;
+    background: #fff;
+    position: fixed;
+    left: 0;
+    bottom: -200px;
+    border-top: 1px #ccc solid;
+    box-shadow: 0 0 13px 3px #ccc;
+    z-index: 1032;
+    transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    -o-transition: all 0.2s;
+}
+#app{
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.bottomBarShow {
+    /*transform: translateY(-200px);
+    -webkit-transform: translateY(-200px);
+    -o-transform: translateY(-200px);
+    -moz-transform: translateY(-200px);
+    -ms-transform: translateY(-200px);*/
+    bottom:0;
+}
+
+.subject {
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.layout_row {
+    position: relative;
+    width: 100%;
+
+}
+
+.layout_row .laybox {
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.module {
+    position: absolute;
+    width: auto !important;
+    height: auto !important;
+    cursor: move;
+    z-index: 1;
+}
+
+.left_sidebar {
+    position: fixed;
+    top: 300px;
+    left: 30px;
+    z-index: 1000;
+}
+
+.left_sidebar_btn {
+    width: 54px;
+    height: 54px;
+    box-shadow: 5px 5px 10px 1px #ccc;
+    border-radius: 54px;
+    text-align: center;
+    border: 1px #e5e5e5 solid;
+    transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    overflow: hidden;
+    background: #fff;
+    cursor: pointer;
+}
+
+.left_sidebar_btn .frame,
+.left_sidebar_dialog .frame {
+    position: relative;
+}
+
+.left_sidebar_btn i {
+    float: left;
+    width: 54px;
+    height: 100%;
+    line-height: 54px;
+    font-size: 30px;
+}
+
+.left_sidebar_btn span {
+    position: absolute;
+    width: 54px;
+    height: 54px;
+    top: 0;
+    left: 40px;
+    opacity: 0;
+    line-height: 54px;
+    transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    font-size: 16px;
+}
+
+.left_sidebar_btn:hover {
+    width: 100px;
+    background: #5874d8;
+}
+
+.left_sidebar_btn:hover span {
+    opacity: 1;
+    color: #fff;
+}
+
+.left_sidebar_btn:hover i {
+    color: #fff;
+}
+
+.left_sidebar_dialog {
+    position: fixed;
+    z-index: 100;
+    width: 350px;
+    height: 600px;
+    background: #fff;
+    top: 66px;
+    left: 100px;
+    box-shadow: 0px 3px 10px 1px #ccc;
+    border-radius: 5px;
+    transition: opacity 0.2s;
+}
+
+.left_sidebar_dialog #tab-icon {
+    padding: 0 10px;
+}
+
+.left_sidebar_dialog #tab-icon i {
+    font-size: 20px;
+    line-height: 40px;
+    color: #fff;
+}
+
+.left_sidebar_dialog .el-tabs__header {
+    background: #5874d8;
+}
+
+.left_sidebar_dialog .el-tabs__item {
+    color: #fff !important;
+}
+
+.left_sidebar_dialog .is-active {
+    color: #5874d8 !important;
+}
+
+.left_sidebar_dialog .close {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 0;
+    right: 0px;
+    z-index: 10;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 24px;
+}
+
+.left_sidebar_dialog .el-tabs__content {
+    height: 630px;
+    padding: 0;
+    overflow: visible;
+}
+
+.left_sidebar_dialog .PendantList {
+    width: 100%;
+    height: 100%;
+}
+
+.left_sidebar_dialog .PendantList li {
+    width: 83px;
+    height: 83px;
+    float: left;
+    text-align: center;
+    /*border-right: 1px dashed #e5e5e5;
+    border-bottom: 1px dashed #e5e5e5;*/
+    margin-bottom: -1px;
+    margin-right: -1px;
+    color: #333;
+    cursor: pointer;
+    background: #fff;
+}
+
+.left_sidebar_dialog .PendantList li img {
+    height: 30px;
+    /* width: 37px; */
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.left_sidebar_dialog .PendantList li span {
+    display: block;
+    font-size: 12px;
+    text-align: center;
+}
+
+.select_laybox {
+    background: #e1edf9 !important;
+    border: 1px #cbdff3 solid;
+}
+.no_select_laybox {
+    background: #ffbdb7 !important;
+    border: 1px #f00 solid;
+}
+.select_laybox::after {
+    content: '此处可放置组件！';
+    display: block;
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    font-size: 20px;
+    line-height: 60px;
+
+    color: #569fe7;
+}
+
+.left_sidebar_dialog .frame {
+    border-radius: 5px;
+}
+
+.edit_title {
+    width: 100%;
+    height: 30px;
+    background: #5874d8;
+    color: #fff;
+    font-size: 14px;
+}
+
+.setOne {
+    height: 40px;
+    /*overflow: hidden;*/
+    margin-top: 10px;
+    min-width: 1100px;
+}
+
+.setOne p {
+    float: left;
+    width: 25%;
+    height: 40px;
+}
+
+.setOne p strong {
+    float: left;
+    height: 40px;
+    width: 110px;
+    line-height: 34px;
+    text-align: left;
+}
+
+.setOne p .el-input {
+    float: left;
+}
+
+.bottomBar .content {
+    min-width: 1200px;
+    height: 170px;
+    overflow: hidden;
+}
+
+.init_edit {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 170px;
+}
+
+.init_edit span {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    vertical-align: middle;
+    line-height: 80px;
+    margin: 0 5px;
+    border: 1px #999 solid;
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative;
+}
+/*
+.init_edit span:hover {
+    color: #fff;
+    background: #5874d8;
+}*/
+
+.edit_title i {
+    float: left;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.edit_title span {
+    line-height: 30px;
+}
+
+.index_parts:hover {
+    border: 2px #f00 dashed !important;
+    box-shadow: 0 0 20px 5px #000;
+}
+
+.edit_title .close {
+    float: right;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 24px;
+}
+
+
+/*.indexBanner{
+  border: 1px transparent dashed;
+}*/
+
+.indexBanner a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+/*.indexBanner a img{
+  display: block;
+  width: 100%;
+  height: 100%;
+}*/
+
+.indexBanner .banner_img {
+    width: 100%;
+    height: 100%;
+}
+
+.indexBanner .swiper-button-prev,
+.indexBanner .swiper-button-next {
+    pointer-events: auto !important;
+}
+
+.indexBanner .thumbnail-page {
+    position: absolute;
+    z-index: 100;
+    bottom: 10px;
+}
+
+.DefaultStyleComponent .swiper-container {
+    height: 130px;
+}
+
+.DefaultStyleComponent .swiper-container .swiper-slide {
+    padding: 10px 0;
+    padding-left: 10px;
+}
+
+.DefaultStyleComponent .swiper-container .swiper-slide .child {
+    border: 1px #999 solid;
+    height: 100%;
+    position: relative;
+    padding: 10px;
+    padding-bottom: 0;
+}
+
+.DefaultStyleComponent .swiper-container-horizontal>.swiper-pagination-bullets {
+    bottom: 3px;
+}
+
+.DefaultStyleComponent .swiper-container .swiper-slide .child p {
+    display: none;
+    width: 60px;
+    height: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.DefaultStyleComponent .swiper-container .swiper-slide .child p i {
+    float: right;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.DefaultStyleComponent .swiper-container .swiper-slide .child img {
+    width: 100%;
+    max-height: 110px;
+    display: block;
+    margin: 0 auto;
+}
+
+.DefaultStyleComponent .swiper-container .swiper-slide .child span {
+    display: block;
+    text-align: left;
+    line-height: 33px;
+    font-weight: 800;
+}
+
+.DefaultStyleComponent .swiper-container .swiper-slide .child:hover p {
+    display: block;
+}
+
+.public_edit {
+    position: absolute;
+    min-width: 80px;
+    height: 45px;
+    top: -43px;
+    left: 0;
+    display: none;
+    cursor: pointer;
+    margin-bottom: 5px;
+    z-index: 1000;
+}
+
+.public_edit ul {
+    min-width: 80px;
+    height: 40px;
+    border: 1px #ccc solid;
+    border-right: none;
+    background: #fff;
+    /* overflow: hidden; */
+}
+
+.module:hover .public_edit {
+    display: block;
+
+}
+
+.public_edit ul li:hover {
+    color: #5874d8;
+    font-weight: 800;
+}
+
+.public_edit ul li {
+    float: left;
+    line-height: 40px;
+    text-align: center;
+    border-right: 1px #ccc solid;
+    padding: 0 10px;
+}
+
+.basic_text_editor {
+    min-width: 150px;
+    cursor: move;
+    border: 2px transparent solid;
+    min-height: 30px;
+}
+
+.basic_text_editor .ql-toolbar {
+    position: absolute;
+    width: 275px;
+    left: 0;
+    top: -70px;
+}
+
+.basic_text_editor .text-show {
+    min-height: 30px;
+}
+
+.basic_text_editor .editNow {
+    z-index: 1001;
+}
+
+.basic_text_editor .editNow .ql-container {
+    border: 1px #5874d8 dashed !important;
+}
+
+.basic_text_editor .ql-container .ql-editor {
+    min-height: 30px;
+}
+
+.basic_text_editor .clicklayer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    /* background: #ccc;*/
+}
+
+.basic_text_editor .myinput {
+    position: relative;
+}
+
+.basic_text_editor .myinput .view {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background: #f00;
+}
+
+.basic_text_editor .noedit .ql-toolbar {
+    display: none !important;
+}
+
+.basic_text_editor .noedit .ql-container {
+    border: none;
+}
+
+.module .frame_point {
+    display: none;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 2px #f00 solid;
+    background: #fff;
+    z-index: 100;
+}
+
+.module .frame_point:nth-of-type(1) {
+    top: -5px;
+    left: -5px;
+}
+
+.module .frame_point:nth-of-type(2) {
+    top: -5px;
+    left: 49%;
+}
+
+.module .frame_point:nth-of-type(3) {
+    top: -5px;
+    right: -5px;
+}
+
+.module .frame_point:nth-of-type(4) {
+    top: 48%;
+    right: -5px;
+}
+
+.module .frame_point:nth-of-type(5) {
+    bottom: -5px;
+    right: -5px;
+}
+
+.module .frame_point:nth-of-type(6) {
+    bottom: -5px;
+    left: 49%;
+}
+
+.module .frame_point:nth-of-type(7) {
+    bottom: -5px;
+    left: -5px;
+}
+
+.module .frame_point:nth-of-type(8) {
+    top: 48%;
+    left: -5px;
+}
+
+.myBorder {
+    width: 25%;
+    height: 40px;
+    float: left;
+}
+
+.myBorder .title {
+    float: left;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    border-width: 1px;
+    border-color: #ccc;
+    border-style: solid;
+    margin-top: 4px;
+}
+
+.myBorder .title img {
+    width: 100%;
+    height: 100%;
+}
+
+.myBorder .sele,
+.myBorder .color,
+.myBorder .int {
+    float: left;
+    margin-right: 5px;
+}
+
+
+/* .layout_row_hover{
+  border: 1px #5874d8 solid !important;
+} */
+
+
+/*.index_Highlight{
+  z-index: 1001 !important;
+}*/
+
+.Mongolia {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.5;
+    z-index: 1000;
+}
+
+.DefaultStyleComponent {
+    height: 170px;
+}
+
+.DefaultStyleComponent .btn {
+    float: left;
+    width: 40px;
+    height: 100%;
+    background: #e5e5e5;
+}
+
+.DefaultStyleComponent .btn i {
+    line-height: 30px;
+    text-align: center;
+    color: #333;
+    font-size: 28px;
+    margin-top: 10px;
+    margin-left: 7px;
+    cursor: pointer;
+}
+
+.DefaultStyleComponent .btn i:hover {
+    color: #5874d8;
+}
+
+.DefaultStyleComponent .imgFrame {
+    width: 100%;
+    height: 65px;
+    line-height: 65px;
+    text-align: center;
+    border: 1px #999 dashed;
+    overflow: hidden;
+}
+
+.DefaultStyleComponent .imgFrame img {
+    vertical-align: middle;
+    max-width: 100%;
+    max-height: 100%;
+    display: inline-block !important;
+}
+
+.DefaultStyleComponent .swiper-container .swiper-slide .child:hover {
+    border: 1px #5874d8 solid;
+    box-shadow: 0px 0px 10px 3px #333;
+    cursor: pointer;
+}
+
+.DefaultStyleComponent .swiper-container .swiper-slide .childSel {
+    border: 1px #5874d8 solid;
+    box-shadow: 0px 0px 10px 3px #333;
+}
+
+.lookImg {
+    width: 100%;
+    height: 400px;
+    line-height: 400px;
+    text-align: center;
+}
+
+.lookImg img {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
+}
+
+.allMongolia {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.5;
+    z-index: 1020;
+}
+
+.moduleTop {
+    z-index: 1031 !important;
+}
+
+.el-dialog {
+    z-index: 1001;
+}
+
+.addStyle .addStyle_imgFrame {
+    width: 100%;
+    height: 150px;
+    line-height: 150px;
+    text-align: center;
+    border: 1px #999 dashed;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.addStyle .addStyle_imgFrame img {
+    display: inline-block;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.addStyle .el-dialog {
+    width: 500px;
+}
+
+.resizable-handle-none {
+    display: none !important;
+}
+
+.addStyle .el-dialog__wrapper {}
+
+.layout_row:hover .row_edit {
+    display: block;
+}
+
+.row_edit {
+    display: none;
+    position: absolute;
+    min-width: 90px;
+    height: 30px;
+    top: 0;
+    left: 0;
+    background: #fff;
+    z-index: 10;
+    /*display: none;*/
+}
+
+.row_edit ul {
+    width: 100%;
+    height: 30px;
+    border: 1px #ccc solid;
+    border-right: none;
+    background: #fff;
+    overflow: hidden;
+    background: #fff;
+}
+
+.row_edit ul li {
+    float: left;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-right: 1px #ccc solid;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.row_edit ul li:hover {
+    color: #5874d8;
+    font-weight: 800;
+}
+
+.editing_block_Mongolia {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0;
+    position: absolute;
+    z-index: 998;
+    left: 0;
+    top:0;
+    line-height: 50px;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    /*transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    -o-transition: all 0.2s;*/
+}
+
+
+/*.layout_header,.layout_body,.layout_footer{
+  position: relative;
+}*/
+
+
+/*.layout_header:hover .editing_block_Mongolia{
+  opacity:0.5;
+}
+
+.layout_body:hover .editing_block_Mongolia{
+  opacity:0.5;
+}
+
+.layout_footer:hover .editing_block_Mongolia{
+  opacity:0.5;
+}*/
+
+.editing_block_Mongolia {}
+
+.no_laybox {
+    background: #ffbdb7 !important;
+    border: 1px #f00 solid;
+}
+
+.no_laybox::after {
+    content: '此处不能放置！';
+    display: block;
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    position: absolute;
+    top: 48%;
+    left: 0;
+    color: #f00;
+}
+
+.row_Mongolia {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.row_back_frame {
+    float: left;
+    width: 25%;
+    height: 40px;
+    position: relative;
+}
+
+.row_back {
+    position: relative;
+    float: left;
+    width: 38px;
+    height: 38px;
+    margin-left: 10px;
+    border: 1px #ccc solid;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.row_back img {
+    width: 100%;
+    height: 100%;
+}
+
+.seleImg {
+    margin-top: 5px;
+}
+
+.row_back_big {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    line-height: 100px;
+    text-align: center;
+    border: 1px #ccc solid;
+    left: 10px;
+    top: -205px;
+    z-index: 100;
+    background: #fff;
+}
+
+.row_back i {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    line-height: 38px;
+    color: #fff;
+    font-size: 18px;
+}
+
+.row_back:hover i {
+    display: block;
+}
+
+.index_effect_img {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+.index_effect_img img {
+    display: inline-block;
+    transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    height: 100%;
+    width: 100%;
+}
+
+.index_effect_img .pic_parent {
+    position: absolute;
+    opacity: 1;
+    transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    top: 0;
+    left: 0;
+    z-index: 9;
+}
+
+.index_effect_img .pic_child {
+    position: absolute;
+    opacity: 0;
+    transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    top: 0;
+    left: 0;
+    z-index: 88;
+}
+
+.index_effect_img .effect_layer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.index_effect_img .effect_layer p {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.index_effect_img .effect_layer p span {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background: #000;
+    transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    z-index: 1;
+}
+
+.index_effect_img .effect_layer p i {
+    position: absolute;
+    opacity: 0;
+    font-family: FontAwesome;
+    transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    top: 0;
+    left: 0;
+}
+
+.index_effect_img:hover .effect_layer p span {
+    opacity: 0.3;
+}
+
+.index_effect_img:hover .effect_layer p i {
+    opacity: 1;
+}
+
+.texiao-items:hover {
+    border: 1px #5874d8 solid;
+}
+
+.index_effect_img:hover .pic_changeSrc {
+    opacity: 0;
+}
+
+.index_effect_img:hover .pic_child {
+    opacity: 1;
+}
+
+.icon_search .el-dialog {
+    width: 600px;
+}
+
+.icon_search .iconList {
+    width: 560px;
+    height: 300px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+.icon_search .iconList li {
+    font-family: FontAwesome;
+    float: left;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    border: 1px #ccc solid;
+    margin-right: 7px;
+    margin-bottom: 7px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.icon_search .iconList .sLi {
+    border: 1px #5874d8 solid;
+}
+
+.icon_search .iconList li:hover {
+    border: 1px #5874d8 solid;
+}
+
+.layout_row:hover .Sortable_Door {
+    display: block;
+}
+
+.Sortable_Door {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 30px;
+    z-index: 10;
+    background: #fff;
+}
+
+.Sortable_Door i {
+    float: right;
+    color: #333;
+    font-size: 18px;
+    line-height: 30px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border: 1px #ccc solid;
+    margin-right: -1px;
+    text-align: center;
+}
+
+.Sortable_Door i:hover {
+    color: #5874d8;
+}
+
+.mySortableModule {
+    height: 30px;
+    background: #ffe5cd;
+    border: 1px #ec6941 dashed;
+    list-style: none;
+}
+
+.mySortableModule:before {
+    content: '放这里';
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #ec6941;
+    text-align: center;
+    line-height: 30px;
+}
+
+.moduleChangeRow:before {
+    content: '放置到这个容器';
+    text-align: center;
+    line-height: 50px;
+    font-size: 18px;
+    color: #5874d8;
+    transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    box-shadow: 0 0 20px 5px #5874d8 inset;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background: rgba(225, 237, 249, 0.3);
+}
+
+.save {
+    float: right;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.Sortableitem {
+    height: 50px !important;
+    overflow: hidden;
+}
+
+.Sortableitem:before {
+    content: '当前拖拽容器';
+    position: absolute;
+    background: #5874d8 !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5000;
+    opacity: 0.8;
+    color: #ff0;
+    line-height: 50px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.Sortableitem .laybox {
+    height: 50px !important;
+}
+
+.handle_sortable {
+    display: none;
+    width: 50px;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: 10;
+    cursor: move;
+}
+
+.handle_sortable i {
+    line-height: 30px;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+}
+
+.layout_row:hover .handle_sortable {
+    display: block;
+}
+
+.align_line {
+    background: #f00;
+    position: absolute;
+    z-index: 1031;
+}
+
+.pic_admin {
+    padding-left: 5px;
+}
+
+.pic_admin .swiper-slide {
+    padding: 10px 0;
+}
+
+.pic_admin .child {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.pic_admin .child:hover .edit {
+    display: block;
+}
+
+.pic_admin .imgFrame {
+    width: 100%;
+    height: 148px;
+    line-height: 148px;
+    border: 1px #ccc dashed;
+    text-align: center;
+    position: relative;
+}
+
+.pic_admin .imgFrame:hover .click_btn {
+    display: block;
+}
+
+.pic_admin .imgFrame .click_btn {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 148px;
+    line-height: 148px;
+    text-align: center;
+    color: #fff;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.pic_admin .imgFrame img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.pic_admin .addPic {
+    width: 100%;
+    height: 148px;
+    line-height: 148px;
+    border: 1px #ccc dashed;
+    text-align: center;
+    background: #e3e3e3;
+    cursor: pointer;
+}
+
+.pic_admin .addPic i {
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 40px;
+    line-height: 148px;
+}
+
+.pic_admin .addPic:hover {
+    background: #ccc;
+}
+
+.pic_admin .edit {
+    display: none;
+    width: 60px;
+    height: 30px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.pic_admin .edit i {
+    float: left;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    line-height: 30px;
+}
+
+.pic_admin .edit i:nth-of-type(1) {
+    background: #ff9d0c;
+}
+
+.pic_admin .edit i:nth-of-type(2) {
+    background: #f00;
+}
+
+.banner_pic_edit .el-dialog {
+    width: 500px;
+}
+
+.banner_pic_edit .addStyle_imgFrame {
+    width: 100%;
+    height: 150px;
+    line-height: 150px;
+    text-align: center;
+    border: 1px #999 dashed;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.banner_pic_edit .addStyle_imgFrame p {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 150px;
+    line-height: 150px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    transition: all 0.3s;
+    background: #000;
+}
+
+.banner_pic_edit .addStyle_imgFrame:hover p {
+    opacity: 0.7;
+}
+
+.banner_pic_edit .myInput {
+    width: 450px;
+}
+
+.banner_pic_edit .myInput .el-input {
+    width: 340px !important;
+}
+
+.addStyle_imgFrame img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.banner_pic_edit .setOne {
+    min-width: 600px;
+}
+
+.banner_pic_edit .setOne p {
+    width: 100%;
+}
+
+
+/*图片编辑器*/
+
+.public_selector {
+    position: relative;
+}
+
+.public_selector .el-dialog {
+    width: 790px;
+}
+
+.public_selector .el-dialog .el-dialog__body {
+    padding: 0px 0px;
+}
+
+.public_selector .con {
+    padding: 0 5px;
+}
+
+.public_selector .con .upload-frame {
+    width: 100% !important;
+}
+
+.public_selector .con .upload-frame .el-upload {
+    width: 100%;
+    height: 66px;
+}
+
+.public_selector .con .upload-frame .el-upload-dragger {
+    width: 100%;
+    height: 60px;
+    line-height: 66px;
+    background: #ebf5ff;
+    border: 1px dashed #99ccff;
+    cursor: pointer;
+}
+
+.public_selector .con .upload-frame .el-upload-dragger:hover {
+    background: #daecff;
+    border: 1px dashed #7fbffe;
+}
+
+.public_selector .con .el-upload-dragger .el-icon-upload {
+    float: left;
+    margin-top: 5px;
+    margin-right: 20px;
+    margin-left: 260px;
+    font-size: 50px;
+    color: #a0d0ff;
+}
+
+.public_selector .con .el-upload-dragger .el-upload__text {
+    float: left;
+    margin: 0;
+}
+
+.public_selector .con .el-upload-dragger .el-upload__text em {
+    color: #1890ff;
+}
+
+.public_selector .progress {
+    position: absolute;
+    width: 100%;
+    height: 425px;
+    background: rgba(255, 255, 255, 0.6);
+    top: 0;
+    left: 0;
+    z-index: 101;
+}
+
+.public_selector .file_body {
+    /*height: 470px;*/
+    overflow-x: hidden;
+    padding-right: 5px;
+    /*padding-top: 10px;*/
+    margin-top: -1px;
+}
+
+.pic_body .pic_list {
+    width: 100%;
+    height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.pic_body .pic_list .addFolderBtn {
+    float: left;
+    width: 84px;
+    height: 60px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px transparent solid;
+    position: relative;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-left: 12px;
+}
+
+.pic_body .pic_list ul {
+    overflow: hidden;
+    padding-top: 5px;
+}
+
+.pic_body .pic_list ul li {
+    float: left;
+    width: 84px;
+    border: 2px transparent solid;
+    margin-left: 12px;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    position: relative;
+}
+
+.pic_body .pic_list ul .PicParent:hover {
+    border-color: #7cd350;
+}
+
+.pic_body .pic_list ul .PicParent .pic_frame:hover i {
+    display: block;
+}
+
+.pic_body .pic_list ul .FolderParent span:hover i {
+    display: block;
+}
+
+.pic_body .pic_list ul li .pic_frame {
+    display: block;
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.public_selector .pic_body .pic_list ul .sel {
+    border: 2px #7cd350 solid;
+}
+
+.public_selector .pic_body .pic_list ul li .sel .child {
+    border: 1px #7cd350 solid;
+}
+
+.public_selector .pic_body .pic_list ul li .sel b {
+    display: block;
+    width: 24px;
+    height: 18px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: url('../assets/ok.png') no-repeat;
+}
+
+.pic_body .pic_list ul li span img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.pic_body .pic_list ul li .imgName {
+    margin-top: 5px;
+    display: block;
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border: 1px transparent solid;
+    border-radius: 3px;
+}
+
+.pic_body .Crumbs {
+    height: 20px;
+    line-height: 20px;
+    padding-left: 10px;
+}
+
+.pic_body .Crumbs .all {
+    color: #409eff;
+    cursor: pointer;
+}
+
+.public_selector .el-upload-list {
+    position: absolute;
+    width: 400px;
+    top: 40%;
+    left: 200px;
+    z-index: 102;
+    background: #fff;
+    padding: 10px;
+    padding-bottom: 20px;
+    border: 1px #ccc solid;
+}
+
+.noUpload .el-upload-list {
+    display: none !important;
+}
+
+.PictureSelector .pic_frame .click {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 99;
+}
+
+.PictureSelector .del_btn {
+    display: none;
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    right: 0;
+    top: 0;
+    z-index: 101;
+    text-align: center;
+    line-height: 22px;
+    color: #fff;
+    font-size: 16px;
+    background: rgba(0, 0, 0, 0.498039215686275);
+}
+
+.PictureSelector .right_bottom_btn {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: block;
+    width: 22px;
+    height: 15px;
+    color: #fff;
+    text-align: center;
+    line-height: 15px;
+    border-top-left-radius: 5px;
+    background: #7cd350;
+}
+
+.el-dialog__header {
+    padding: 9px;
+    border-bottom: 1px #e3e3e3 solid;
+}
+
+.el-dialog__title {
+    font-size: 16px;
+}
+
+.el-dialog__headerbtn {
+    top: 10px;
+}
+
+.el-dialog__footer {
+    padding: 10px;
+    border-top: 1px #e3e3e3 solid;
+}
+
+.module_thumbnail {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+#module_thumbnail_Mongolia {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .5);
+    z-index: 2001;
+    text-align: center;
+}
+
+#module_thumbnail_Mongolia:after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 0;
+    vertical-align: middle;
+}
+
+#module_thumbnail_Mongolia img {
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    max-width: 940px;
+    max-height: 620px;
+}
+
+#module_thumbnail_Mongolia .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+    z-index: 2002;
+}
+
+#module_thumbnail_Mongolia .close:hover {
+    background: #c64d43;
+}
+
+
+/*导航栏目管理*/
+
+#navTabs .ui-tabs-panel {
+    padding: 10px 10px;
+    background: #fff;
+}
+
+#navLogo {
+    position: absolute;
+    top: 0px;
+    left: 30px;
+    min-width: 100px;
+    min-height: 30px;
+    background: #ccc;
+    z-index: 100;
+}
+
+#moduleNav {
+    position: relative;
+    margin-bottom: 0;
+}
+
+#moduleNav .module {
+    z-index: 100;
+    margin-bottom: 0;
+}
+
+.navTabs {
+    overflow-x: hidden;
+}
+
+.indexCustom .indexNav {
+    margin-bottom: 0;
+    display: flex;
+}
+
+.indexCustom .indexNav li {
+    float: left;
+    text-align: center;
+    position: relative;
+}
+
+/*.fixed_css .indexNav {
+    display: flex;
+}*/
+
+.menumenu .indexNav li {
+    float: left;
+    text-align: center;
+    position: relative;
+}
+
+.menumenu .indexNav li a {
+    display: block;
+}
+
+.indexCustom .indexNav li i {
+    position: absolute;
+    font-family: FontAwesome;
+    line-height: normal;
+}
+
+.indexNav li i {
+    position: absolute;
+    font-family: FontAwesome;
+    line-height: normal;
+}
+
+.indexCustom .indexNav li a {
+    display: block;
+    overflow: hidden;
+}
+
+.indexCustom .indexNav .indexNavChild ul li a {
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+
+/*.indexCustom{
+    display: block !important;
+}*/
+
+#navNewColumnFrame {
+    height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.navColumnFrame {
+    width: 100%;
+}
+
+
+/*在外面的样式*/
+
+#navColumnList {
+    margin-bottom: 0;
+    width: 775px;
+    min-height: 325px;
+}
+
+.navColumnList .navOneLi {
+    width: 100%;
+    min-height: 41px;
+    border: 1px transparent solid;
+    list-style: none;
+    overflow: hidden;
+    margin-bottom: 5px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    transition: box-shadow 0.3s, border 0.3s;
+    -moz-transition: box-shadow 0.3s, border 0.3s;
+    -webkit-transition: box-shadow 0.3s, border 0.3s;
+    -o-transition: box-shadow 0.3s, border 0.3s;
+    overflow: hidden;
+}
+
+.navColumnList .navOneLiHidden {
+    height: 42px;
+}
+
+.navColumnList .navOneLi .ben {
+    width: 773px;
+    height: 40px;
+    border: 1px #a8bbde solid;
+    cursor: move;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    line-height: 40px;
+    background: #e3e9fb;
+}
+
+.navColumnList .navOneLi .ben label {
+    float: left;
+    margin-bottom: 0;
+    width: 7%;
+    height: 40px;
+    text-align: center;
+    font-size: 26px;
+    line-height: 40px;
+    font-family: FontAwesome;
+    color: #666;
+}
+
+.navColumnList .navOneLi .ben label:hover {
+    cursor: pointer;
+}
+
+.navColumnList .navOneLi .ben em {
+    float: left;
+    width: 7%;
+    height: 40px;
+    text-align: center;
+    font-size: 26px;
+    line-height: 40px;
+    font-family: FontAwesome;
+}
+
+.navColumnList .navOneLi .ben em:hover {
+    cursor: pointer;
+}
+
+.navColumnList .navOneLi .ben b {
+    float: left;
+    width: 7%;
+    height: 40px;
+    text-align: center;
+    font: 14px/40px '微软雅黑';
+    position: relative;
+    top: 0 !important;
+    left: 0 !important;
+}
+
+.navColumnList .navOneLi .ben b i {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.navColumnList .navOneLi .ben strong {
+    float: left;
+    width: 20%;
+    height: 40px;
+    text-align: center;
+    font: 14px/40px '微软雅黑';
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.navColumnList .navOneLi .ben p {
+    float: left;
+    width: 325px;
+    height: 40px;
+    text-align: center;
+    font: 14px/40px '微软雅黑';
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-bottom: 0;
+}
+
+.navColumnList .navOneLi .ben .showBtnFrame {
+    width: 30px;
+    height: 40px;
+    float: left;
+    cursor: pointer;
+}
+
+.navColumnList .navOneLi .ben .showBtn {
+    display: none;
+    float: left;
+    width: 0;
+    height: 0;
+    border-top: 10px #666 solid;
+    border-left: 6px transparent solid;
+    border-right: 6px transparent solid;
+    border-bottom: none;
+    margin: 0 auto;
+    margin-top: 15px;
+    margin-left: 10px;
+    transition: transform 0.3s;
+    -moz-transition: transform 0.3s;
+    -webkit-transition: transform 0.3s;
+    -o-transition: transform 0.3s;
+}
+
+.navColumnList .navOneLi .ben .showBtnUp {
+    transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+}
+
+.navColumnList .navOneLi .ben .childTitle {
+    display: none;
+}
+
+.navColumnList .navOneLi .ben .columnName {
+    font: 12px/40px '微软雅黑';
+    float: left;
+    width: 100px;
+}
+
+.navColumnList .navOneLi .ben .columnType {
+    font: 12px/40px '微软雅黑';
+    float: left;
+    width: 78px;
+    margin-left: 270px;
+}
+
+.navColumnList .navOneLi .ben .viewState {
+    float: left;
+    margin-left: 80px;
+    width: 40px;
+    height: 40px;
+    font: 12px/40px '微软雅黑';
+    cursor: pointer;
+}
+
+.navColumnList .navOneLi .ben .edit {
+    font: 12px/40px '微软雅黑';
+    float: left;
+    margin-left: 60px;
+    cursor: pointer;
+}
+
+.navColumnList .navOneLi .ben .navDele {
+    font: 12px/40px '微软雅黑';
+    float: left;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.navColumnList .navOneLi .ben .addColumn {
+    display: none;
+    float: right;
+    margin-top: 7px;
+    margin-right: -23px;
+    width: 20px;
+    height: 20px;
+    font-size: 30px;
+    line-height: 20px;
+    font-weight: 900;
+    color: #666;
+}
+
+.navColumnList .paixu {
+    width: 775px;
+    height: 41px;
+    background: #fff8a1;
+    border: 1px #e3c818 dashed;
+    margin-bottom: 7px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.navColumnList .neipaixu {
+    width: 750px;
+    height: 40px;
+    background: #fff8a1;
+    border: 1px #e3c818 dashed;
+    margin-bottom: 10px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.navColumnList .xuanfu {
+    box-shadow: 5px 5px 5px #666;
+    border: 1px #0026ff solid;
+}
+
+
+/*.child{
+  float: left;
+  width: 400px;
+  height: 50px;
+  background: #54979c;
+  margin-top: 5px;
+}*/
+
+
+/*拉进去的样式*/
+
+.childFrame .navChildLi {
+    width: 713px;
+    height: 40px;
+    cursor: move;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    line-height: 40px;
+    background: #f5f5f5;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    opacity: 0.8;
+    margin-left: 60px;
+}
+
+.childFrame .navChildLi .ben {
+    width: 100%;
+    height: 40px;
+    border: 1px #b5c8eb solid;
+    cursor: move;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    line-height: 50px;
+    /*background: #f5f5f5;*/
+}
+
+.childFrame .navChildLi .ben em {
+    float: left;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 26px;
+    line-height: 40px;
+    font-family: FontAwesome;
+}
+
+.childFrame .navChildLi .ben label {
+    float: left;
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 40px;
+    font-family: FontAwesome;
+    position: relative;
+    top: 0 !important;
+    left: 0 !important;
+}
+
+.childFrame .navChildLi .ben label i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+}
+
+.childFrame .navChildLi .ben strong {
+    float: left;
+    width: 163px;
+    height: 40px;
+    text-align: center;
+    font: 14px/40px '微软雅黑';
+}
+
+.navColumnList .navOneLi .ben p {
+    float: left;
+    width: 325px;
+    height: 40px;
+    text-align: center;
+    font: 14px/40px '微软雅黑';
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-bottom: 0;
+}
+
+.childFrame .navOneLi .ben .showBtnFrame {
+    display: none;
+}
+
+.childFrame .navOneLi .ben .showBtn {
+    display: none;
+}
+
+.childFrame .navOneLi .ben .childTitle {
+    display: block;
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin-top: 10px;
+}
+
+.childFrame .navOneLi .ben .columnName {
+    font: 12px/40px '微软雅黑';
+    float: left;
+    width: 100px;
+}
+
+.childFrame .navOneLi .ben .columnType {
+    font: 12px/40px '微软雅黑';
+    float: left;
+    margin-left: 230px;
+}
+
+.childFrame .navOneLi .ben .viewState {
+    float: left;
+    margin-left: 80px;
+    font: 12px/40px '微软雅黑';
+    width: 40px;
+    height: 40px;
+}
+
+.childFrame .navOneLi .ben .edit {
+    font: 12px/40px '微软雅黑';
+    float: left;
+    margin-left: 60px;
+    cursor: pointer;
+}
+
+.childFrame .navOneLi .ben .navDele {
+    font: 12px/40px '微软雅黑';
+    float: left;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.childFrame .navOneLi .ben .addColumn {
+    display: none;
+}
+
+.navOneLi .childFrame .neipaixu {
+    width: 660px;
+    height: 40px;
+    margin-left: 113px;
+    background: #fff8a1;
+    border: 1px #e3c818 dashed;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+
+/*啦出来的样式*/
+
+.navColumnList .childOneLi {
+    width: 750px;
+    height: 40px;
+    border: 1px #b5c8eb solid;
+    cursor: move;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    line-height: 50px;
+    background: #f5f5f5;
+    margin-bottom: 10px;
+}
+
+.navColumnList .childOneLi .columnName {
+    font: 12px/40px '微软雅黑';
+    float: left;
+    width: 100px;
+    margin-left: 20px;
+}
+
+.navColumnList .childOneLi .columnType {
+    font: 12px/40px '微软雅黑';
+    float: left;
+    margin-left: 280px;
+}
+
+.navColumnList .childOneLi .open {
+    float: left;
+    margin-left: 80px;
+    width: 12px;
+    height: 12px;
+    margin-top: 16px;
+    /*background:url(/static/image/open.gif) no-repeat;*/
+}
+
+.navColumnList .childOneLi .edit {
+    font: 12px/40px '微软雅黑';
+    float: left;
+    margin-left: 80px;
+    cursor: pointer;
+}
+
+.navColumnList .childOneLi .navDele {
+    font: 12px/40px '微软雅黑';
+    float: left;
+    margin-left: 10px;
+}
+
+.navColumnList .childOneLi .addColumn {
+    float: right;
+    margin-top: 7px;
+    margin-right: -23px;
+    width: 20px;
+    height: 20px;
+    font-size: 30px;
+    line-height: 20px;
+    font-weight: 900;
+    color: #666;
+}
+
+.el-dialog__body {
+    padding: 10px;
+}
+
+.navColumnFrame .neipaixu {
+    width: 750px;
+    height: 42px;
+    background: #f5f5f5;
+    border: 1px #b5c8eb dashed;
+    margin-bottom: 10px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.nav_list_dialog .el-dialog {
+    width: 810px;
+}
+
+.nav_column .list-nav-tit {
+    width: 775px;
+    height: 40px;
+    margin-bottom: 0px;
+}
+
+.nav_column .list-nav-tit em {
+    float: left;
+    height: 40px;
+    font: 14px/40px '微软雅黑';
+    font-weight: 800;
+    width: 7%;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.nav_column .list-nav-tit strong {
+    float: left;
+    height: 40px;
+    font: 14px/40px '微软雅黑';
+    font-weight: 800;
+    width: 7%;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.nav_column .list-nav-tit p {
+    float: left;
+    height: 40px;
+    font: 14px/40px '微软雅黑';
+    font-weight: 800;
+    width: 7%;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.nav_column .list-nav-tit i {
+    float: left;
+    height: 40px;
+    font: 14px/40px '微软雅黑';
+    font-weight: 800;
+    width: 20%;
+    text-align: center;
+}
+
+.nav_column .list-nav-tit b {
+    float: left;
+    height: 40px;
+    font: 14px/40px '微软雅黑';
+    font-weight: 800;
+    width: 325px;
+    text-align: center;
+}
+
+.nav_edit_dialog .el-dialog {
+    width: 450px;
+}
+
+.nav_column .icon_show:hover {
+    background: #007fff;
+    color: #fff !important;
+    cursor: pointer;
+}
+
+.nav_column .icon_show:hover i {
+    display: block !important;
+}
+
+#navColumnList .childFrame {
+    background: #fff;
+}
+
+.nav_column .icon_show i:hover {
+    color: #12ff07;
+}
+
+
+/*
+.v-modal{
+  display: none !important;
+}*/
+
+.iconStyleChoice .iconPositionBtn {
+    width: 150px;
+    height: 150px;
+    border: 1px #ccc solid;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.iconStyleChoice .iconPositionBtn li {
+    width: 40px;
+    height: 40px;
+    float: left;
+    background: #ccc;
+    margin-left: 7px;
+    margin-top: 8px;
+    cursor: pointer;
+}
+
+.iconStyleChoice ul .selectBtn {
+    background: #ff7f2a;
+}
+
+.iconStyleChoice ul .iconPositionBtnHover {
+    background: #ff7f2a;
+}
+
+.iconStyleChoice .iconStyleHover {
+    border: 1px #ff7f2a solid;
+    box-shadow: 0px 0px 10px #ff2a2a;
+}
+
+.iconStyleChoice ul li:nth-of-type(1) i {
+    /*上*/
+    left: 43%;
+}
+
+.iconStyleChoice ul li:nth-of-type(2) i {
+    /*下*/
+    left: 43%;
+    bottom: 0;
+}
+
+.iconStyleChoice ul li:nth-of-type(3) i {
+    /*左*/
+    top: 36%;
+    left: 10%;
+}
+
+.iconStyleChoice ul li:nth-of-type(4) i {
+    /*右*/
+    top: 36%;
+    right: 10%;
+}
+
+.navIconStyleChoice {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.navIconStyleChoice .iconStyleChoice {
+    float: left;
+    width: 25%;
+    height: 100%;
+}
+
+
+/*nav1*/
+
+#nav1 {
+    height: 40px;
+    background: #333;
+}
+
+#nav1 .nav {
+    height: 40px;
+    width: 100%;
+}
+
+#nav1 .indexNav {
+    position: relative;
+    top: 0px;
+    width: 100%;
+    height: 39px;
+    margin: 0 auto;
+    background: url('../../static/image/nav1/nav1-back.png') no-repeat;
+    background-position: 0 -88px;
+    z-index: 99;
+}
+
+#nav1 .indexNav .indexNavChild {
+    height: 39px;
+    width: 121px;
+    float: left;
+    background: url('../../static/image/nav1/nav1-back.png') no-repeat;
+    background-position: 0 -41px;
+}
+
+
+/*#nav1 .indexNav .indexNavChild:nth-of-type(1){
+    background:url('../assets/nav1/nav1-hover.gif) no-repeat;
+    background-size:cover;
+}*/
+
+#nav1 .indexNav .seleNav {
+    background: url('../assets/nav1/nav1-hover.gif') no-repeat;
+    background-size: cover;
+}
+
+#nav1 .indexNav .indexNavChild a {
+    display: block;
+    height: 39px;
+    width: 121px;
+    float: left;
+    font: 13px/39px '微软雅黑';
+    text-align: center;
+    font-family: FontAwesome;
+}
+
+#nav1 .indexNav .indexNavChild:hover {
+    background: url('../assets/nav1/nav1-hover.gif') no-repeat;
+    /*要改*/
+    background-size: cover;
+}
+
+#nav1 .indexNav .indexNavChild ul {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 39px;
+    width: 120px;
+    border: 1px #fe3232 solid;
+    /*要改*/
+}
+
+#nav1 .indexNav .indexNavChild ul li {
+    float: none;
+    background: #d24949;
+    width: 120px;
+    height: 40px;
+    border-bottom: 1px #fe3232 solid;
+    /*要改*/
+}
+
+#nav1 .indexNav .indexNavChild ul li a {
+    width: 120px;
+    height: 40px;
+    font: 13px/37px '微软雅黑';
+}
+
+#nav1 .indexNav .indexNavChild ul li a:hover {
+    background: #0094be;
+}
+
+
+/*nav2*/
+
+#nav2 {
+    height: 43px;
+    /*比indexNav的高度高3px*/
+    background: #333;
+}
+
+#nav2 .nav {
+    width: 100%;
+    height: 43px;
+}
+
+#nav2 .module {
+    height: 43px;
+    /*比indexNav的高度高3px*/
+}
+
+#nav2 .indexNav {
+    position: relative;
+    top: 0px;
+    width: 100%;
+    height: 39px;
+    margin: 0 auto;
+    background: url('../assets/nav2/nav2-back.gif');
+    /*要改*/
+    z-index: 99;
+}
+
+#nav2 .indexNav .indexNavChild {
+    height: 39px;
+    width: 121px;
+    float: left;
+    background: url('../assets/nav2/nav2-li.gif') no-repeat;
+    /*要改*/
+}
+
+#nav2 .indexNav .indexNavChild:nth-of-type(1) {
+    height: 39px;
+    width: 121px;
+    float: left;
+    background: none
+}
+
+#nav2 .indexNav .indexNavChild a {
+    display: block;
+    height: 39px;
+    width: 121px;
+    float: left;
+    font: 13px/39px '微软雅黑';
+    text-align: center;
+}
+
+#nav2 .indexNav .indexNavChild:nth-of-type(1) a {
+    color: #e84c3d;
+}
+
+#nav2 .indexNav .indexNavChild:hover a {
+    color: #e84c3d;
+}
+
+#nav2 .indexNav .indexNavChild:hover ul a {
+    color: #fff;
+}
+
+#nav2 .indexNav .indexNavChild ul {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 41px;
+    width: 120px;
+    border: 1px #fff dotted;
+    /*要改*/
+}
+
+#nav2 .indexNav .indexNavChild ul li {
+    float: none;
+    background: #333;
+    width: 120px;
+    height: 37px;
+    border-bottom: 1px #fff dotted;
+    /*要改*/
+}
+
+#nav2 .indexNav .indexNavChild ul li a {
+    width: 120px;
+    height: 37px;
+    font: 13px/37px '微软雅黑';
+    color: #fff;
+}
+
+#nav2 .indexNav .indexNavChild a:hover {
+    color: #e84c3d !important;
+}
+
+#nav2 .indexNav .indexNavChild ul li a:hover {
+    color: #e84c3d !important;
+}
+
+
+/*nav3*/
+
+#nav3 {
+    height: 43px;
+    /*比indexNav的高度高3px*/
+    background: #333;
+}
+
+#nav3 .nav {
+    width: 100%;
+    height: 43px;
+}
+
+#nav3 .module {
+    height: 43px;
+    /*比indexNav的高度高3px*/
+}
+
+#nav3 .indexNav {
+    position: relative;
+    top: 2px;
+    width: 100%;
+    height: 39px;
+    margin: 0 auto;
+    background: #333333;
+    /*要改*/
+    z-index: 99;
+}
+
+#nav3 .indexNav .indexNavChild {
+    height: 39px;
+    width: 121px;
+    float: left;
+}
+
+#nav3 .indexNav .indexNavChild:nth-of-type(1) {
+    height: 39px;
+    width: 121px;
+    float: left;
+    background: #ff3000
+}
+
+#nav3 .indexNav .indexNavChild a {
+    display: block;
+    height: 40px;
+    width: 121px;
+    float: left;
+    font: 13px/39px '微软雅黑';
+    text-align: center;
+}
+
+#nav3 .indexNav .indexNavChild:hover {
+    background: #ff3000
+}
+
+#nav3 .indexNav .indexNavChild ul {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 41px;
+    width: 120px;
+    border: 1px #fff dotted;
+    /*要改*/
+}
+
+#nav3 .indexNav .indexNavChild ul li {
+    float: none;
+    background: #333;
+    width: 120px;
+    height: 37px;
+    border-bottom: 1px #fff dotted;
+    /*要改*/
+}
+
+#nav3 .indexNav .indexNavChild ul li a {
+    width: 120px;
+    height: 37px;
+    font: 13px/37px '微软雅黑';
+    color: #fff;
+}
+
+#nav3 .indexNav .indexNavChild ul li a:hover {
+    background: #ff3000
+}
+
+
+/*nav4*/
+
+#nav4 {
+    height: 43px;
+    /*比indexNav的高度高3px*/
+    background: #333;
+}
+
+#nav4 .nav {
+    width: 100%;
+    height: 43px;
+}
+
+#nav4 .module {
+    height: 43px;
+    /*比indexNav的高度高3px*/
+}
+
+#nav4 .indexNav {
+    border: 1px #888888 solid;
+    position: relative;
+    top: 2px;
+    width: 100%;
+    height: 39px;
+    margin: 0 auto;
+    background: url('../assets/nav4/nav4-back.png');
+    /*要改*/
+    z-index: 99;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#nav4 .indexNav .indexNavChild {
+    height: 39px;
+    width: 121px;
+    float: left;
+    background: url('../assets/nav4/nav4-li.png') no-repeat;
+    /*要改*/
+}
+
+#nav4 .indexNav .indexNavChild:nth-of-type(1) {
+    background: none;
+    /*要改*/
+}
+
+#nav4 .indexNav .indexNavChild:nth-of-type(1) a {
+    background: url('../assets/nav4/nav4-a.png') no-repeat;
+    /*要改*/
+    background-position: 27px 30px;
+}
+
+#nav4 .indexNav .indexNavChild a {
+    display: block;
+    height: 39px;
+    width: 121px;
+    float: left;
+    font: 13px/39px '微软雅黑';
+    text-align: center;
+}
+
+#nav4 .indexNav .indexNavChild:hover a {
+    background: url('../assets/nav4/nav4-a.png') no-repeat;
+    /*要改*/
+    background-position: 27px 30px;
+}
+
+#nav4 .indexNav .indexNavChild:hover ul li a {
+    background: none;
+    /*要改*/
+}
+
+#nav4 .indexNav .indexNavChild ul {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 41px;
+    width: 120px;
+    border: 1px #888888 solid;
+    /*要改*/
+}
+
+#nav4 .indexNav .indexNavChild ul li {
+    float: none;
+    background-color: #333;
+    width: 120px;
+    height: 37px;
+    border-bottom: 1px #888888 solid;
+    /*要改*/
+}
+
+#nav4 .indexNav .indexNavChild ul li a {
+    width: 120px;
+    height: 37px;
+    font: 13px/37px '微软雅黑';
+}
+
+#nav4 .indexNav .indexNavChild ul li a:hover {
+    background: #0094be;
+}
+
+
+/*nav5*/
+
+#nav5 {
+    height: 40px;
+    /*比indexNav的高度高3px*/
+    background: #787878;
+}
+
+#nav5 .nav {
+    width: 100%;
+    height: 40px;
+}
+
+#nav5 .module {
+    height: 40px;
+    /*比indexNav的高度高3px*/
+}
+
+#nav5 .indexNav {
+    border: 1px #888888 solid;
+    position: relative;
+    top: 2px;
+    width: 100%;
+    height: 36px;
+    margin: 0 auto;
+    background: url('../assets/nav5/nav5-back.png');
+    /*要改*/
+    z-index: 99;
+}
+
+#nav5 .indexNav .indexNavChild {
+    height: 36px;
+    width: 121px;
+    float: left;
+    background: url('../assets/nav5/nav5-li.png') no-repeat;
+    /*要改*/
+}
+
+#nav5 .indexNav .indexNavChild:nth-of-type(1) {
+    background: none;
+    /*要改*/
+}
+
+#nav5 .indexNav .indexNavChild:nth-of-type(1) a {
+    background: url('../assets/nav5/nav5-a.png');
+    /*要改*/
+}
+
+#nav5 .indexNav .indexNavChild a {
+    display: block;
+    height: 36px;
+    width: 121px;
+    float: left;
+    font: 13px/36px '微软雅黑';
+    text-align: center;
+    color: #fff;
+}
+
+#nav5 .indexNav .indexNavChild:hover a {
+    background: url('../assets/nav5/nav5-a.png');
+    /*要改*/
+}
+
+#nav5 .indexNav .indexNavChild:hover ul li a {
+    background: none;
+    /*要改*/
+}
+
+#nav5 .indexNav .indexNavChild ul {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 36px;
+    width: 120px;
+    border: 1px #888888 solid;
+    /*要改*/
+}
+
+#nav5 .indexNav .indexNavChild ul li {
+    float: none;
+    background-color: #333;
+    width: 120px;
+    height: 37px;
+    border-bottom: 1px #888888 solid;
+    /*要改*/
+}
+
+#nav5 .indexNav .indexNavChild ul li a {
+    width: 120px;
+    height: 37px;
+    font: 13px/37px '微软雅黑';
+}
+
+#nav5 .indexNav .indexNavChild ul li a:hover {
+    background: #0094be;
+}
+
+
+/*nav6*/
+
+#nav6 {
+    height: 39px;
+    /*比indexNav的高度高3px*/
+    background: #8cc123;
+}
+
+#nav6 .nav {
+    width: 100%;
+    height: 39px;
+}
+
+#nav6 .indexNav {
+    border: 1px #679901 solid;
+    position: relative;
+    top: 2px;
+    width: 100%;
+    height: 35px;
+    margin: 0 auto;
+    background: url('../assets/nav6/nav6-back.png');
+    /*要改*/
+    z-index: 99;
+}
+
+#nav6 .indexNav .indexNavChild {
+    height: 35px;
+    width: 121px;
+    float: left;
+    background: url('../assets/nav6/nav6-li.png') no-repeat;
+    /*要改*/
+}
+
+#nav6 .indexNav .indexNavChild:nth-of-type(1) {
+    background: none;
+    /*要改*/
+}
+
+#nav6 .indexNav .indexNavChild:nth-of-type(1) a {
+    background: url('../assets/nav6/nav6-a.png');
+    /*要改*/
+    color: #ffff00;
+}
+
+#nav6 .indexNav .indexNavChild a {
+    display: block;
+    height: 35px;
+    width: 121px;
+    float: left;
+    font: 13px/35px '微软雅黑';
+    text-align: center;
+    color: #fff;
+}
+
+#nav6 .indexNav .indexNavChild:hover a {
+    background: url('../assets/nav6/nav6-a.png');
+    /*要改*/
+    color: #ffff00;
+}
+
+#nav6 .indexNav .indexNavChild:hover ul li a {
+    background: none;
+    /*要改*/
+    color: #fff;
+}
+
+#nav6 .indexNav .indexNavChild ul {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 36px;
+    width: 120px;
+    border: 1px #679901 solid;
+    /*要改*/
+}
+
+#nav6 .indexNav .indexNavChild ul li {
+    float: none;
+    background-color: #72a902;
+    width: 120px;
+    height: 36px;
+    border-bottom: 1px #679901 solid;
+    /*要改*/
+}
+
+#nav6 .indexNav .indexNavChild ul li a {
+    width: 120px;
+    height: 36px;
+    font: 13px/36px '微软雅黑';
+}
+
+#nav6 .indexNav .indexNavChild ul li a:hover {
+    color: #ffff00;
+}
+
+
+/*nav7*/
+
+#nav7 {
+    height: 42px;
+    /*比indexNav的高度高3px*/
+    background: #fda818;
+}
+
+#nav7 .nav {
+    width: 100%;
+    height: 42px;
+}
+
+#nav7 .indexNav {
+    border: 1px #fc830c solid;
+    position: relative;
+    top: 2px;
+    width: 100%;
+    height: 37px;
+    margin: 0 auto;
+    background: url('../assets/nav7/nav7-back.png');
+    /*要改*/
+    z-index: 99;
+}
+
+#nav7 .indexNav .indexNavChild {
+    height: 37px;
+    width: 121px;
+    float: left;
+    background: url('../assets/nav7/nav7-li.png') no-repeat;
+    /*要改*/
+}
+
+#nav7 .indexNav .indexNavChild:nth-of-type(1) {
+    background: none;
+    /*要改*/
+}
+
+#nav7 .indexNav .indexNavChild:nth-of-type(1) a {
+    background: url('../assets/nav7/nav7-a.png');
+    /*要改*/
+    background-size: cover;
+}
+
+#nav7 .indexNav .indexNavChild a {
+    display: block;
+    height: 37px;
+    width: 121px;
+    float: left;
+    font: 13px/36px '微软雅黑';
+    text-align: center;
+    color: #fff;
+}
+
+#nav7 .indexNav .indexNavChild:hover a {
+    background: url('../assets/nav7/nav7-a.png');
+    /*要改*/
+    background-size: cover;
+}
+
+#nav7 .indexNav .indexNavChild:hover ul li a {
+    background: none;
+    /*要改*/
+}
+
+#nav7 .indexNav .indexNavChild ul {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 38px;
+    width: 120px;
+    border: 1px #fd8100 solid;
+    /*要改*/
+}
+
+#nav7 .indexNav .indexNavChild ul li {
+    float: none;
+    background-color: #fbad42;
+    width: 120px;
+    height: 38px;
+    border-bottom: 1px #fd8100 solid;
+    /*要改*/
+}
+
+#nav7 .indexNav .indexNavChild ul li a {
+    width: 120px;
+    height: 36px;
+    font: 13px/37px '微软雅黑';
+}
+
+#nav7 .indexNav .indexNavChild ul li a:hover {
+    background: #fd9219;
+}
+
+
+/*nav8*/
+
+#nav8 {
+    height: 43px;
+    /*比indexNav的高度高3px*/
+    background: url('../assets/nav8/nav8-back.png');
+}
+
+#nav8 .nav {
+    width: 100%;
+    height: 43px;
+}
+
+#nav8 .indexNav {
+    border: 1px #5c5c8e solid;
+    position: relative;
+    top: 0px;
+    width: 100%;
+    height: 40px;
+    margin: 0 auto;
+    background: url('../assets/nav8/nav8-back.png');
+    /*要改*/
+    z-index: 99;
+}
+
+#nav8 .indexNav .indexNavChild {
+    height: 40px;
+    width: 121px;
+    float: left;
+    background: url('../assets/nav8/nav8-li.png') no-repeat;
+    /*要改*/
+}
+
+#nav8 .indexNav .indexNavChild:nth-of-type(1) {
+    background: none;
+    /*要改*/
+}
+
+#nav8 .indexNav .indexNavChild:nth-of-type(1) a {
+    background: url('../assets/nav8/nav8-a.png');
+    /*要改*/
+    background-size: cover;
+}
+
+#nav8 .indexNav .indexNavChild a {
+    display: block;
+    height: 40px;
+    width: 121px;
+    float: left;
+    font: 13px/40px '微软雅黑';
+    text-align: center;
+    color: #fff;
+}
+
+#nav8 .indexNav .indexNavChild:hover a {
+    background: url('../assets/nav8/nav8-a.png');
+    /*要改*/
+    background-size: cover;
+}
+
+#nav8 .indexNav .indexNavChild:hover ul li a {
+    background: none;
+    /*要改*/
+}
+
+#nav8 .indexNav .indexNavChild ul {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 40px;
+    width: 120px;
+    border: 1px #38375b solid;
+    /*要改*/
+}
+
+#nav8 .indexNav .indexNavChild ul li {
+    float: none;
+    background-color: #3e3d65;
+    width: 120px;
+    height: 40px;
+    border-bottom: 1px #38375b solid;
+    /*要改*/
+}
+
+#nav8 .indexNav .indexNavChild ul li a {
+    width: 120px;
+    height: 40px;
+    font: 13px/40px '微软雅黑';
+}
+
+#nav8 .indexNav .indexNavChild ul li a:hover {
+    background: #fd9219;
+}
+
+
+/*nav9*/
+
+#nav9 {
+    height: 43px;
+    /*比indexNav的高度高3px*/
+    background: url('../assets/nav9/nav9-back.png');
+}
+
+#nav9 .nav {
+    width: 100%;
+    height: 43px;
+}
+
+#nav9 .indexNav {
+    border: 1px #5c5c8e solid;
+    position: relative;
+    top: 0px;
+    width: 100%;
+    height: 40px;
+    margin: 0 auto;
+    background: url('../assets/nav9/nav9-back.png');
+    /*要改*/
+    z-index: 99;
+}
+
+#nav9 .indexNav .indexNavChild {
+    height: 40px;
+    width: 121px;
+    float: left;
+    background: url('../assets/nav9/nav9-li.png') no-repeat;
+    /*要改*/
+    background-size: cover;
+}
+
+#nav9 .indexNav .indexNavChild:nth-of-type(1) {
+    background: none;
+    /*要改*/
+}
+
+#nav9 .indexNav .indexNavChild:nth-of-type(1) a {
+    background: url('../assets/nav9/nav9-a.png');
+    /*要改*/
+    background-size: cover;
+}
+
+#nav9 .indexNav .indexNavChild a {
+    display: block;
+    height: 40px;
+    width: 121px;
+    float: left;
+    font: 13px/40px '微软雅黑';
+    text-align: center;
+    color: #fff;
+}
+
+#nav9 .indexNav .indexNavChild:hover a {
+    background: url('../assets/nav9/nav9-a.png');
+    /*要改*/
+    background-size: cover;
+}
+
+#nav9 .indexNav .indexNavChild:hover ul li a {
+    background: none;
+    /*要改*/
+}
+
+#nav9 .indexNav .indexNavChild ul {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 41px;
+    width: 120px;
+    border: 1px #555555 solid;
+    /*要改*/
+}
+
+#nav9 .indexNav .indexNavChild ul li {
+    float: none;
+    background-color: #666666;
+    width: 120px;
+    height: 41px;
+    border-bottom: 1px #555555 solid;
+    /*要改*/
+}
+
+#nav9 .indexNav .indexNavChild ul li a {
+    width: 120px;
+    height: 40px;
+    font: 13px/40px '微软雅黑';
+}
+
+#nav9 .indexNav .indexNavChild ul li a:hover {
+    background: #edaa12;
+}
+
+
+/*nav10*/
+
+#nav10 {
+    height: 43px;
+    /*比indexNav的高度高3px*/
+    background: url('../assets/nav10/nav10-back.png');
+}
+
+#nav10 .nav {
+    width: 100%;
+    height: 43px;
+}
+
+#nav10 .indexNav {
+    border-right: 1px #2a83a2 solid;
+    position: relative;
+    top: 0px;
+    width: 100%;
+    height: 40px;
+    margin: 0 auto;
+    background: url('../assets/nav10/nav10-back.png');
+    /*要改*/
+    z-index: 99;
+}
+
+#nav10 .indexNav .indexNavChild {
+    height: 40px;
+    width: 121px;
+    float: left;
+    background: url('../assets/nav10/nav10-li.png') no-repeat;
+    /*要改*/
+}
+
+#nav10 .indexNav .indexNavChild:nth-of-type(1) {
+    background: none;
+    /*要改*/
+}
+
+#nav10 .indexNav .indexNavChild:nth-of-type(1) a {
+    background: url('../assets/nav10/nav10-a.png');
+    /*要改*/
+    background-size: cover;
+}
+
+#nav10 .indexNav .indexNavChild a {
+    display: block;
+    height: 40px;
+    width: 121px;
+    float: left;
+    font: 13px/40px '微软雅黑';
+    text-align: center;
+    color: #fff;
+}
+
+#nav10 .indexNav .indexNavChild:hover a {
+    background: url('../assets/nav10/nav10-a.png');
+    /*要改*/
+    background-size: cover;
+}
+
+#nav10 .indexNav .indexNavChild:hover ul li a {
+    background: none;
+    /*要改*/
+}
+
+#nav10 .indexNav .indexNavChild ul {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 41px;
+    width: 120px;
+    border: 1px #176684 solid;
+    /*要改*/
+}
+
+#nav10 .indexNav .indexNavChild ul li {
+    float: none;
+    background-color: #48a0bd;
+    width: 120px;
+    height: 41px;
+    border-bottom: 1px #176684 solid;
+    /*要改*/
+}
+
+#nav10 .indexNav .indexNavChild ul li a {
+    width: 120px;
+    height: 40px;
+    font: 13px/40px '微软雅黑';
+}
+
+#nav10 .indexNav .indexNavChild ul li a:hover {
+    background: #edaa12;
+}
+
+
+/*nav11*/
+
+#nav11 {
+    height: 47px;
+    /*比indexNav的高度高3px*/
+    background: url('../assets/nav11/nav11-back.png');
+}
+
+#nav11 .nav {
+    width: 100%;
+    height: 47px;
+}
+
+#nav11 .indexNav {
+    position: relative;
+    top: 0px;
+    width: 100%;
+    height: 44px;
+    margin: 0 auto;
+    background: url('../assets/nav11/nav11-back.png');
+    /*要改*/
+    z-index: 99;
+}
+
+#nav11 .indexNav .indexNavChild {
+    height: 44px;
+    width: 121px;
+    float: left;
+}
+
+#nav11 .indexNav .indexNavChild:nth-of-type(1) {
+    background: none;
+    /*要改*/
+}
+
+#nav11 .indexNav .indexNavChild:nth-of-type(1) a {
+    background: url('../assets/nav11/nav11-a.png');
+    /*要改*/
+}
+
+#nav11 .indexNav .indexNavChild a {
+    display: block;
+    height: 44px;
+    width: 121px;
+    float: left;
+    font: 13px/44px '微软雅黑';
+    text-align: center;
+    color: #fff;
+}
+
+#nav11 .indexNav .indexNavChild:hover a {
+    background: url('../assets/nav11/nav11-a.png');
+    /*要改*/
+}
+
+#nav11 .indexNav .indexNavChild:hover ul li a {
+    background: none;
+    /*要改*/
+}
+
+#nav11 .indexNav .indexNavChild ul {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 44px;
+    width: 120px;
+    border: 1px #0096c5 solid;
+    /*要改*/
+}
+
+#nav11 .indexNav .indexNavChild ul li {
+    float: none;
+    background-color: #1badda;
+    width: 120px;
+    height: 41px;
+    border-bottom: 1px #0096c5 solid;
+    /*要改*/
+}
+
+#nav11 .indexNav .indexNavChild ul li a {
+    width: 120px;
+    height: 40px;
+    font: 13px/40px '微软雅黑';
+}
+
+#nav11 .indexNav .indexNavChild ul li a:hover {
+    background: #edaa12;
+}
+
+
+/*navCustom1*/
+
+#navCustom1 {
+    /*position: relative;*/
+    height: 48px;
+    /*比indexNav的高度高3px*/
+    background: #1e1e1e;
+}
+
+#navCustom1 .nav {
+    width: 100%;
+    min-height: 48px;
+}
+
+#navCustom1 .indexNav {
+    position: relative;
+    top: 2px;
+    height: 45px;
+    width: 100%;
+    margin: 0 auto;
+    z-index: 99;
+}
+
+#navCustom1 .indexNav .indexNavChild {
+    height: 45px;
+    width: 121px;
+    float: left;
+    border-right: 1px transparent solid;
+}
+
+#navCustom1 .indexNav .indexNavChild:nth-of-type(1) a {
+    height: 45px;
+    width: 121px;
+    float: left;
+    border-right: 1px transparent solid;
+}
+
+#navCustom1 .indexNav .indexNavChild a {
+    display: block;
+    height: 45px;
+    width: 121px;
+    float: left;
+    font: 13px/45px '微软雅黑';
+    text-align: center;
+    font-family: FontAwesome;
+}
+
+#navCustom1 .indexNav .indexNavChild ul {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 45px;
+    width: 121px;
+}
+
+#navCustom1 .indexNav .indexNavChild ul li {
+    float: none;
+    width: 121px;
+    height: 30px;
+}
+
+#navCustom1 .indexNav .indexNavChild ul li a {
+    width: 121px;
+    height: 30px;
+    font: 13px/30px '微软雅黑';
+    color: #fff;
+}
+
+.navEdit {
+    width: 100%;
+    height: 100%;
+}
+
+.navEdit .navStyleChoice {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.navEdit .navStyleChoice .swiper-container {
+    height: 100%;
+}
+
+.navEdit .navStyleChoice .mychild {
+    height:150px;
+    padding: 10px;
+    background: #e3e9fb;
+    border: 1px #a8bbde solid;
+    line-height: 150px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.navEdit .navStyleChoice .mychild img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.navEdit .navStyleChoice .mychild:hover {
+    border-color: #f00;
+    box-shadow: 0px 0px 10px #f00;
+}
+
+.navEdit .navStyleChoice .select {
+    border-color: #f00;
+    box-shadow: 0px 0px 10px #f00;
+}
+
+.navEdit .Switch {
+    width: 100%;
+    height: 100%;
+    background: #e3e3e3;
+    text-align: center;
+    line-height: 150px;
+    cursor: pointer;
+    border: 1px transparent solid;
+}
+
+.navEdit .Switch:hover {
+    border: 1px #f00 dashed;
+    color: #f00;
+}
+
+.navEdit .navCustomStyleChoice {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.navEdit .navCustomStyleChoice .el-tabs--border-card>.el-tabs__content {
+    padding: 0px;
+}
+
+.navCustomStyleChoice .child_silder {
+    height: 130px;
+}
+
+.indexCustom .indexNav li {
+    float: left;
+    text-align: center;
+    position: relative;
+}
+
+.menumenu .indexNav li {
+    float: left;
+    text-align: center;
+    position: relative;
+}
+
+.menumenu .indexNav li a {
+    display: block;
+}
+
+.indexCustom .indexNav li i {
+    position: absolute;
+    font-family: FontAwesome;
+    line-height: normal;
+}
+
+.indexNav li i {
+    position: absolute;
+    font-family: FontAwesome;
+    line-height: normal;
+}
+
+.indexCustom .indexNav li a {
+    display: block;
+    overflow: hidden;
+}
+
+.indexCustom .indexNav .indexNavChild ul li a {
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.indexCustom .indexNav .indexNavChild ul li {
+    /*vertical-align: middle;
+  line-height: 60px !important;*/
+}
+
+.indexNavChild .Interlayer {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    float: left;
+}
+
+.indexNavChild .backColor {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.indexCustom .indexNav .indexNavChild:hover .children_list {
+    /*display: block !important;*/
+}
+
+
+/*.indexCustom .indexNav .indexNavChild .children_list{
+  width: 100%;
+  display: block !important;
+}*/
+
+.indexCustom .indexNav .indexNavChild .children_list li {
+    float: none;
+}
+
+.edit_list .el-dialog {
+    width: 700px;
+}
+
+.contentButton .inp input {
+    height: 30px;
+}
+
+.edit_list .edit_list_body {
+    margin-top: 10px;
+}
+
+.edit_list thead tr th {
+    background: #f2f2f2;
+}
+
+.edit_list tbody td {
+    padding: 8px 0;
+}
+
+.edit_list .el-pagination {
+    text-align: center;
+    margin-top: 10px;
+}
+
+#listSetUp .el-dialog {
+    width: 830px;
+}
+
+#listSetUp .listAdministration {
+    width: 400px;
+    height: 397px;
+    float: left;
+    border: 1px #ccc solid;
+    border-radius: 3px;
+    margin-right: 8px;
+}
+
+#listSetUp .title {
+    position: relative;
+    width: 400px;
+    height: 50px;
+    font: 14px/40px '微软雅黑';
+    padding-left: 10px;
+    text-align: left;
+    border-bottom: 1px #ccc solid;
+    margin: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#listSetUp .title .top_btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+#listSetUp .title button {
+    float: left;
+    margin-left: 10px;
+}
+
+#listSetUp .listAdministration .listbox {
+    width: 398px;
+    height: 345px;
+    overflow-y: auto;
+    padding: 10px 10px;
+    margin: 0;
+}
+
+#listSetUp .listAdministration .listbox li {
+    width: 377px;
+    height: 84px;
+    padding: 5px;
+    background: #e3e3e3;
+    margin-bottom: 10px;
+    cursor: move;
+    border: 1px #999 solid;
+    border-radius: 3px;
+    position: relative;
+}
+
+#listSetUp .listAdministration .listbox li img {
+    float: left;
+    width: 48px;
+    height: 48px;
+    border: 1px #ccc solid;
+    margin-right: 5px;
+}
+
+#listSetUp .listAdministration .listbox li .listCenter {
+    float: left;
+    width: 218px;
+    height: 72px;
+    margin: 0;
+}
+
+#listSetUp .listAdministration .listbox li p {
+    width: 100%;
+    height: 24px;
+    margin-bottom: 0;
+    overflow: hidden;
+}
+
+#listSetUp .listAdministration .listbox li p span {
+    float: left;
+    width: 48px;
+    height: 24px;
+    line-height: 24px;
+}
+
+#listSetUp .listAdministration .listbox li p b {
+    float: left;
+    width: 170px;
+    height: 24px;
+    line-height: 24px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#listSetUp .listAdministration .listbox li p i {
+    float: left;
+    width: 170px;
+    height: 24px;
+    line-height: 24px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#listSetUp .listAdministration .listbox li p strong {
+    display: block;
+    width: 170px;
+    height: 24px;
+    line-height: 24px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/*.listbox li h5{
+	float: left;
+	width: 45px;
+	height:48px;
+}*/
+
+#listSetUp .listAdministration .listbox li .myBtn {
+    position: absolute;
+    width: 60px;
+    top: 5px;
+    right: 5px;
+}
+
+#listSetUp .listAdministration .listbox li .myBtn button {
+    margin-left: 0;
+    margin-bottom: 5px;
+}
+
+.oneSetUp .classTitle {
+    width: 100%;
+    height: 50px;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px #ccc solid;
+    position: relative;
+}
+
+.oneSetUp .classTitle .top_btn {
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+
+.oneSetUp .classTitle p {
+    width: 238px;
+    float: left;
+    height: 40px;
+    margin: 0;
+}
+
+.oneSetUp .classTitle p span {
+    line-height: 40px;
+    margin-left: 5px;
+    font-size: 12px;
+}
+
+.oneSetUp .classTitle p .ivu-select {}
+
+.oneSetUp .classTitle button:nth-of-type(1) {
+    margin-right: 2px;
+}
+
+.oneSetUp .classTitle button {
+    float: left;
+    margin-top: 4px;
+    margin-left: 5px;
+    padding-left: 13px;
+    padding-right: 13px;
+}
+
+.oneSetUp .classList {
+    width: 100%;
+    height: 295px;
+    border-top: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+#productTabs .classListBox {
+    width: 100%;
+    padding: 5px 5px;
+    border: none;
+    margin: 0;
+}
+
+#productTabs .xuanfu {
+    border: 1px #ff2e1d solid;
+}
+
+#productTabs .ivu-tabs-nav {
+    height: 40px;
+}
+
+.classListBox li {
+    width: 375px;
+    height: 84px;
+    padding: 5px;
+    background: #e3e3e3;
+    margin-bottom: 10px;
+    cursor: move;
+    border: 1px #999 solid;
+    border-radius: 3px;
+    position: relative;
+}
+
+.classListBox li img {
+    float: left;
+    width: 48px;
+    height: 48px;
+    border: 1px #ccc solid;
+    margin-right: 5px;
+}
+
+.classListBox li .listCenter {
+    float: left;
+    width: 210px;
+    height: 72px;
+    margin: 0;
+}
+
+.classListBox li p {
+    width: 100%;
+    height: 24px;
+    margin-bottom: 0;
+    overflow: hidden;
+}
+
+.classListBox li p span {
+    float: left;
+    width: 48px;
+    height: 24px;
+    line-height: 24px;
+}
+
+.classListBox li p b {
+    float: left;
+    width: 160px;
+    height: 24px;
+    line-height: 24px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.classListBox li p i {
+    float: left;
+    width: 160px;
+    height: 24px;
+    line-height: 24px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.classListBox li p strong {
+    float: left;
+    width: 160px;
+    height: 24px;
+    line-height: 24px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.classListBox li .myBtn {
+    float: left;
+    margin-right: 10px;
+    height: 23px;
+    margin-bottom: 3px;
+    font-size: 12px;
+    line-height: 13px;
+}
+
+.classListBox .listSort {
+    background: #fee968;
+    height: 84px;
+    border: 1px #fe794f dashed;
+}
+
+.classTitleEditBox {
+    width: 100%;
+    height: 260px;
+    overflow-y: auto;
+}
+
+.classTitleEditBox button {
+    margin-left: 10px;
+}
+
+.classTitleEditBox li {
+    height: 60px;
+    padding: 10px 10px;
+    cursor: move;
+    background: #f2f2f2;
+    margin-bottom: 10px;
+}
+
+.classTitleEditBox li span {
+    cursor: move;
+}
+
+#listSetUp .oneSetUp {
+    width: 400px;
+    height: 397px;
+    position: relative;
+    float: left;
+    border: 1px #ccc solid;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+#listSetUp .oneSetUp .Occlusion {
+    position: absolute;
+    width: 398px;
+    height: 350px;
+    top: 47px;
+    left: 0;
+    background: #e3e3e3;
+    font: 18px/350px '微软雅黑';
+    text-align: center;
+    z-index: 10;
+}
+
+.classListBox li .top_btn {
+    position: absolute;
+    width: 60px;
+    top: 5px;
+    right: 5px;
+}
+
+.classListBox li .top_btn button {
+    margin-left: 0;
+    margin-bottom: 5px;
+}
+
+.listEdit {
+    width: 100%;
+    overflow: hidden;
+}
+
+.listEdit p {
+    float: left;
+    margin-top: 10px;
+    width: 102px;
+    height: 145px;
+    margin-right: 10px;
+}
+
+.listEdit p b {
+    display: block;
+    width: 100px;
+    height: 100px;
+    border: 1px #ccc solid;
+}
+
+.listEdit p b img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.listEdit p button {
+    display: block;
+    margin-top: 10px;
+    width: 100px;
+}
+
+.listEdit input {
+    float: left;
+    width: 360px;
+    height: 30px;
+    padding: 0px 10px;
+    line-height: 30px;
+    border: 1px #ccc solid;
+    margin-top: 10px;
+}
+.listEdit input::-webkit-input-placeholder{
+    color: #999;
+}
+.listEdit textarea::-webkit-input-placeholder{
+    color: #999;
+}
+.listEdit input:-moz-placeholder{
+    color: #999;
+}
+.listEdit textarea:-moz-placeholder{
+    color: #999;
+}
+.listEdit input::-moz-placeholder{
+    color: #999;
+}
+.listEdit textarea::-moz-placeholder{
+    color: #999;
+}
+.listEdit input:-ms-input-placeholder{
+    color: #999;
+}
+.listEdit textarea:-ms-input-placeholder{
+    color: #999;
+}
+.listEdit textarea {
+    float: left;
+    margin-top: 10px;
+    width: 360px;
+    height: 105px;
+    padding: 10px;
+    border: 1px #ccc solid;
+}
+
+.addlist .el-dialog {
+    width: 500px;
+}
+
+.listAdministration .listbox .listSort {
+    background: #fee968;
+    height: 84px;
+    border: 1px #fe794f dashed;
+}
+
+#listSetUp .oneSetUp .classList .classListBox {
+    border: 1px transparent solid;
+    min-height: 280px;
+}
+
+#listSetUp .oneSetUp .classList .xuanfu {
+    border: 1px #ff2e1d solid;
+}
+
+.classTitleEditBox {
+    width: 100%;
+    height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.init_edit span {
+    margin: 0 3px;
+    box-sizing: border-box;
+}
+
+
+/*图文展示*/
+
+#productList {
+    min-height: 100px;
+}
+
+#productList .swiper-button-disabled {
+    pointer-events: auto;
+}
+
+#productList .swiper-slide .border {
+    width: 99%;
+    height: 99%;
+}
+
+#productList .swiper-slide .border a {
+    /*display: block;*/
+    width: 100%;
+    height: 100%;
+}
+
+#productList .swiper-slide .border img {
+    float: left;
+}
+
+#productList .swiper-slide .border p {
+    float: left;
+    margin-bottom: 0;
+}
+
+#productList .swiper-slide .border b {
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#productList .swiper-slide .border span {
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#productList .swiper-slide .border strong {
+    float: left;
+}
+
+#productList .classSwiper {
+    position: relative;
+}
+
+#productList .classSwiper .oneBox {
+    padding: 0;
+}
+
+#productList .classSwiperBoxFrame {
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+
+#productList .classSwiperBox {
+    background: transparent;
+    position: relative;
+    margin: 0;
+}
+
+#productList .classSwiperBox li {
+    float: left;
+    text-align: center;
+    border-width:1px;
+    border-style:solid ;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
+#productList .classSwiperBox li:hover {
+    cursor: pointer;
+}
+
+#productList .Mongolia {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 80;
+    display: none;
+}
+
+#productList .Mongolia a {
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#productList .Mongolia a div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+#productList .Mongolia a div p {
+    width: 100%;
+    height: 100%;
+    display: table;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#productList .Mongolia a p strong {
+    display: table-cell;
+    width: 100%;
+    vertical-align: middle;
+}
+
+#productList .Mongolia a p strong b,
+#productList .Mongolia a p strong i,
+#productList .Mongolia a p strong em {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+}
+
+#productList .Mongolia a span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#productList .banner-btn {
+    position: absolute;
+    text-align: center;
+    z-index: 10;
+    font-family: FontAwesome;
+    cursor: pointer;
+}
+
+#productList #picSwiper-Class,
+#productList #picSwiper-noClass {
+    position: relative;
+}
+
+#productList .UpAndDownTime {
+    float: left;
+}
+
+#productList .UpAndDownTime p {
+    text-align: center;
+    width: 100%;
+    float: none !important;
+}
+
+#productList .UpAndDownTime em {
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin: 0 !important;
+}
+
+#productList .swiper-slide .border i {
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#productList .swiper-slide .border h1 {
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#productList .swiper-slide {
+    cursor: auto !important;
+}
+
+
+/*.basic_picarticle_a{
+  border: 1px transparent dashed;
+}*/
+
+.index_Highlight {
+    box-shadow: 0 0 3px 3px #f00 inset;
+}
+
+.select_Highlight {
+    box-shadow: 0 0 3px 3px #f00;
+}
+
+.index_Highlight_hover {
+    box-sizing: border-box;
+    box-shadow: 0px 0 3px 3px #f00 inset;
+}
+
+.basic_picarticle_a .border {
+    border-width: 1px;
+}
+
+.banner_pic_edit .setOne p strong {
+    width: 100px;
+}
+
+.right_sidebar {
+    position: fixed;
+    background: #fff;
+    top: 60px;
+    width: 300px;
+    height: auto;
+    right: -330px;
+    bottom: 0;
+    z-index: 1000;
+    box-shadow: 0 10px 30px 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s;
+}
+
+.right_sidebar .myHeader {
+    padding-left: 10px;
+    background: #666;
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
+}
+
+.right_sidebar .myLayer {
+    background: #f1f1f1;
+    height: 100%;
+}
+
+.right_sidebar .myLayer .one {
+    width: 100%;
+    padding: 0 10px;
+    overflow-y: auto;
+}
+
+.right_sidebar .myLayer .one .oneLi {
+    width: 268px;
+    height: auto;
+    min-height: 40px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.right_sidebar .myLayer .one .oneLi .line {
+    width: 100%;
+    height: 40px;
+    background: #fff;
+    border-radius: 20px;
+    padding-right: 6px;
+}
+
+.right_sidebar .myLayer .one .oneLi b {
+    float: left;
+    width: 40px;
+    height: 40px;
+    border: 1px #ccc solid;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.right_sidebar .myLayer .one .oneLi span {
+    float: left;
+    width: 150px;
+    margin-left: 10px;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: move;
+}
+
+.right_sidebar .myLayer .two {
+    margin-left: 40px;
+    width: 230px;
+}
+
+
+/*.myLayer .line:hover{
+  cursor: move;
+}*/
+
+.right_sidebar .myLayer i {
+    float: right;
+    width: 20px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.right_sidebar .myLayer i:hover {
+    color: #f00;
+}
+
+.right_sidebar .myLayer i:hover {
+    cursor: pointer;
+}
+
+.right_sidebar .myLayer .two .twoli {
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+}
+
+.right_sidebar .myLayer .two .twoli .line {
+    width: 100%;
+    height: 40px;
+    background: #fff;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+
+.right_sidebar .myLayer .two .twoli b {
+    float: left;
+    width: 40px;
+    height: 40px;
+    border: 1px #ccc solid;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: FontAwesome;
+}
+
+.right_sidebar .myLayer .two .twoli span {
+    float: left;
+    width: 131px;
+    margin-left: 10px;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.right_sidebar .myLayer .one .mylayerSort {
+    width: 100%;
+    height: 40px;
+    background: #ffe5cd;
+    margin-top: 10px;
+    border-radius: 20px;
+}
+
+.right_sidebar .myLayer .one .selectli>.line {
+    background: #999;
+    color: #fff;
+}
+
+.right_sidebar_open {
+    transform: translateX(-332px);
+    -webkit-transform: translateX(-332px);
+    -o-transform: translateX(-332px);
+    -moz-transform: translateX(-332px);
+    -ms-transform: translateX(-332px);
+}
+
+.right_sidebar .myHeader .right_sidebar_close {
+    float: right;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+}
+
+.right_sidebar .myLayer .one .oneLiClose {
+    height: 40px;
+}
+
+.right_sidebar_parent_placeholder {
+    height: 40px;
+    background: #ffe5cd;
+    border: 1px #ec6941 dashed;
+    list-style: none;
+    margin-top: 10px;
+}
+
+.right_sidebar_parent_placeholder:before {
+    content: '放这里';
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #ec6941;
+    text-align: center;
+    line-height: 30px;
+}
+
+.right_sidebar .myLayer .two .twoli .moduleNoShow {
+    background: #e3e3e3;
+}
+
+.right_sidebar .el-tabs {
+    height: calc(100% - 65px);
+}
+
+.right_sidebar .el-tabs__content {
+    height: calc(100% - 40px);
+    padding: 0;
+    padding-bottom: 10px;
+    background: #f2f2f2;
+}
+
+.right_sidebar .right_sidebar_layer {}
+
+.right_sidebar .myLayer .one .oneLi .noChild:before {
+    content: '无';
+    font-weight: 400;
+}
+
+.right_sidebar .myLayer .two .twoli .sline {
+    background: #5874d8;
+}
+
+.right_sidebar .myLayer .two .twoli .sline b {
+    color: #fff;
+}
+
+.right_sidebar .myLayer .two .twoli .sline span {
+    color: #fff;
+}
+
+.right_sidebar .myLayer .two .twoli .sline i {
+    color: #fff;
+}
+
+.layout_row .module_selectable {
+    width: 100%;
+    height: 100%;
+}
+
+.module .module_position {
+    display: none;
+    position: absolute;
+    left: 0;
+    bottom: -17px;
+    background: #fff;
+    padding-left: 5px;
+    min-width: 110px;
+}
+
+.module:hover .module_position {
+    display: block;
+}
+
+.module .module_position span:nth-of-type(2) {
+    margin-right: 10px;
+}
+
+.listandpage_edit .el-tabs--border-card>.el-tabs__content {
+    padding: 0;
+}
+
+.dataChoice .selectLength {
+    float: left;
+    height: 34px;
+    margin-left: 10px;
+}
+
+.dataChoice .selectLength i {
+    float: left;
+    height: 34px;
+    line-height: 34px;
+}
+
+.dataChoice .selectLength b {
+    float: left;
+    height: 34px;
+    line-height: 34px;
+}
+
+.dataChoice .btn {
+    float: left;
+}
+
+.listAndPage {
+    overflow: hidden;
+    position: relative;
+}
+
+.listAndPage .listEveryOne {
+    position: relative;
+    float: left;
+}
+
+.listAndPage .listEveryOne .listEveryOne-a {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: move;
+}
+
+.listAndPage .listEveryOne .a-download {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 81;
+}
+
+.listAndPage .listEveryOne .listEveryOne-ul {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.listAndPage .listEveryOne .listEveryOne-ul li {
+    position: absolute;
+    margin: 0;
+}
+
+.listAndPage .listEveryOne .listEveryOne-ul li p {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 0;
+}
+
+.listAndPage .listEveryOne .listEveryOne-ul li .oneLine {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.listAndPage .listEveryOne .listEveryOne-ul li p span {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.listAndPage .listEveryOne .listEveryOne-ul li img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.listAndPage .listEveryOne .Mongolia {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 80;
+    display: none;
+}
+
+.listAndPage .listEveryOne .Mongolia a {
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.listAndPage .listEveryOne .Mongolia a div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.listAndPage .listEveryOne .Mongolia a div p {
+    width: 100%;
+    height: 100%;
+    display: table;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.listAndPage .listEveryOne .Mongolia a p strong {
+    display: table-cell;
+    width: 100%;
+    vertical-align: middle;
+}
+
+.listAndPage .listEveryOne .Mongolia a p strong b,
+.listAndPage .listEveryOne .Mongolia a p strong i,
+.listAndPage .listEveryOne .Mongolia a p strong em {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+}
+
+.listAndPage .listEveryOne .Mongolia a span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#listAndPageTabs .ivu-select {
+    margin-top: 4px;
+}
+
+.listAndPage #page {
+    position: absolute;
+    width: 100% !important;
+    left: 0 !important;
+}
+
+.listAndPage #page .pageBox {
+    display: inline-block;
+}
+
+.listAndPage #page p {
+    float: left;
+    margin: 0;
+}
+
+.listAndPage #page ul {
+    float: left;
+    overflow: hidden;
+    margin: 0;
+}
+
+.listAndPage #page ul li {
+    float: left;
+}
+
+.listAndPage #page ul li a,
+.listAndPage #page p a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+.listAndPage .listEveryOne ul .img {
+    overflow: hidden;
+}
+
+.listAndPage .listEveryOne ul .img img {
+    transition: all 0.3s;
+}
+
+.listAndPage .li_move {
+    cursor: move;
+}
+
+.listEveryOne-ul .icon p i {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.listEveryOne-ul .icon p b {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    font-family: FontAwesome;
+    z-index: 10;
+}
+
+.detailarticle_edit .el-tabs--border-card>.el-tabs__content {
+    padding: 0;
+}
+
+
+/*文章详情*/
+
+.newsIndex {
+    position: relative;
+}
+
+.newsIndex .indexContainer {
+    position: absolute;
+}
+
+.newsIndex .indexContainer p {
+    word-break: break-all;
+    margin: 0;
+}
+
+.newsIndex .newsIndex_headerBottom p {
+    margin-bottom: 0;
+    overflow: hidden;
+}
+
+.newsIndex .newsIndex_header {
+    word-break: break-all;
+}
+
+.newsIndex .newsIndex_summary {
+    word-break: break-all;
+}
+
+.newsIndex .newsIndex_headerBottom {
+    text-align: center;
+}
+
+.newsIndex .newsIndex_headerBottom p {
+    display: inline-block;
+}
+
+.newsIndex .newsIndex_headerBottom p span {
+    float: left;
+}
+
+.newsIndex .newsIndex_headerBottom p b {
+    float: left;
+}
+
+.newsIndex .newsIndex_img {
+    overflow: hidden;
+}
+
+.newsIndex .newsIndex_seo_content {
+    overflow-y: auto;
+}
+
+.newsIndex .newsIndex_content .zhanwei,
+.newsIndex .newsIndex_seo_content .zhanwei {
+    float: left;
+}
+
+.newsIndex .newsIndex_content .content {
+    width: 100%;
+    height: 100%;
+}
+
+.productIndexTab {
+    overflow: hidden;
+    position: absolute;
+    height: auto !important;
+}
+
+.newsIndex .productIndexTab .productIndexTab-title ul {
+    overflow: hidden;
+}
+
+.newsIndex .productIndexTab .productIndexTab-title ul li {
+    float: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.newsIndex .productIndexTab .productIndexTab-title ul li:before {
+    margin: 5px;
+}
+
+.newsIndex .productIndexTab .productIndexTab-content {
+    overflow-y: auto;
+}
+
+.newsIndex .productIndexTab .productIndexTab-content p {
+    word-break: break-all;
+    margin: 0;
+}
+
+.newsIndex_seo_content p {
+    margin: 0;
+}
+
+.newsIndex_content .content_show {
+    padding: 10px;
+    line-height: 25px;
+}
+
+.newsIndex_content .magnifier_frame {
+    position: relative;
+    float: left;
+}
+
+.newsIndex_content .magnifier_frame span {
+    position: absolute;
+    width: 80px;
+    height: 20px;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+}
+
+.right_sidebar_layer .right_sidebar_parent .select_parent>.line {
+    background: #ff8812 !important;
+}
+
+.right_sidebar_layer .right_sidebar_parent .select_parent>.line>b {
+    color: #fff;
+}
+
+.right_sidebar_layer .right_sidebar_parent .select_parent>.line>span {
+    color: #fff;
+}
+
+.right_sidebar_layer .right_sidebar_parent .select_parent>.line>i {
+    color: #fff;
+}
+
+.left_sidebar_dialog .frame #PendantList {
+    height: 630px;
+    overflow-y: auto;
+}
+
+.catelog_edit .el-tabs--border-card>.el-tabs__content {
+    padding: 0;
+}
+
+
+/*分类*/
+
+.indexCatelog .verticalState .oneUl {
+    overflow-y: auto;
+}
+
+.indexCatelog .verticalState ul {
+    overflow: hidden;
+}
+
+.indexCatelog .verticalState ul li {
+    float: right;
+}
+
+.indexCatelog .verticalState ul li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    text-decoration: none;
+    border: 1px transparent solid;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/*.indexCatelog .verticalState .twoUl{
+  display: none;
+
+}*/
+
+.indexCatelog .verticalState .threeUl {
+    display: none;
+}
+
+.indexCatelog .oneUl::-webkit-scrollbar {
+    width: 5px;
+    background-color: #e3e3e3;
+}
+
+.indexCatelog .oneUl::-webkit-scrollbar-thumb {
+    background-color: #999;
+    border-radius: 3px;
+}
+
+.indexCatelog .swiperCatelog {
+    width: 100%;
+}
+
+.indexCatelog .swiperCatelog .swiperLeft,
+.swiperCatelog .swiperRight {
+    text-align: center;
+    font-size: 14px;
+    float: left;
+    width: 25px;
+    border: 1px #999 solid;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.indexCatelog .swiperCatelog .swiperLeft button,
+.swiperCatelog .swiperRight button {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #e3e3e3;
+}
+
+.indexCatelog .swiperCatelog .swiperLeft button i,
+.swiperCatelog .swiperRight button i {
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 22px;
+}
+
+.indexCatelog .swiperCatelog .swiperRight {
+    margin-left: 5px;
+}
+
+.indexCatelog .swiperCatelog .swiperCenter {
+    float: left;
+}
+
+.indexCatelog .swiperCatelog .border {
+    width: 99%;
+    height: 99%;
+    border: 1px transparent solid;
+}
+
+.indexCatelog .swiperCatelog .border a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.indexCatelog .swiperCatelog .swiperCatelog-twolevel {
+    margin-top: 5px;
+    /*border-bottom: 1px #e3e3e3 dashed;*/
+    margin-left: 25px;
+}
+
+.indexCatelog .swiperCatelog .swiperCatelog-twolevel ul {
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+.indexCatelog .swiperCatelog .swiperCatelog-twolevel li {
+    float: left;
+    border: 1px transparent solid;
+    margin-bottom: 5px;
+}
+
+.indexCatelog .swiperCatelog .swiperCatelog-twolevel li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.indexCatelog .swiperCatelog .swiperCatelog-threelevel {
+    margin-top: 5px;
+    margin-left: 25px;
+}
+
+.indexCatelog .swiperCatelog .swiperCatelog-threelevel ul {
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+.indexCatelog .swiperCatelog .swiperCatelog-threelevel li {
+    float: left;
+    border: 1px transparent solid;
+    margin-bottom: 5px;
+}
+
+.indexCatelog .swiperCatelog .swiperCatelog-threelevel li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.indexCatelog .swiperCatelog .floatCatelog-onelevel {}
+
+.indexCatelog .swiperCatelog .floatCatelog-onelevel ul {
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+.indexCatelog .swiperCatelog .floatCatelog-onelevel li {
+    float: left;
+    border: 1px transparent solid;
+}
+
+.indexCatelog .swiperCatelog .floatCatelog-onelevel li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.honor_edit .el-tabs__content {
+    padding: 0;
+}
+
+.honor_edit .honor_list li {
+    border: 1px #ccc solid;
+    border-radius: 3px;
+    width: calc(100% - 10px);
+    height: 100px;
+    background: #e3e3e3;
+    margin-bottom: 10px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.honor_edit .honor_list li:hover {
+    cursor: move;
+}
+
+.honor_edit .honor_list li img {
+    width: 78px;
+    height: 78px;
+    float: left;
+}
+
+.honor_edit .honor_list li p {
+    float: left;
+    width: 400px;
+    height: 78px;
+    margin-bottom: 0;
+    margin-left: 10px;
+    overflow: hidden;
+}
+
+.honor_edit .honor_list li .honor_btn {
+    float: left;
+    width: 60px;
+    margin-left: 10px;
+}
+
+.honor_edit .honor_list li .honor_btn button {
+    display: block;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.honor_edit .honor_list li p b,
+.honor_edit .honor_list li p strong {
+    display: block;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.honor_edit .honor_list .listSort {
+    background: #fee968;
+    height: 100px;
+    border: 1px #fe794f dashed;
+}
+
+.honor_edit .honor_list .title {
+    width: 100%;
+    height: 40px;
+    font: 14px/40px '微软雅黑';
+    padding-left: 10px;
+    text-align: left;
+    border-bottom: 1px #ccc solid;
+    margin: 0;
+}
+
+.honor_edit .honor_list .title button {
+    float: right;
+    margin-right: 3px;
+    margin-top: 2px;
+}
+
+.honor_edit .honorList {
+    height: 360px;
+    overflow-y: auto;
+    padding-top: 5px;
+}
+
+.honor_edit .honor_list .el-dialog {
+    width: 630px;
+}
+
+.honor_edit .listEdit_frame .el-dialog {
+    width: 500px;
+}
+
+
+/*荣誉资质index*/
+
+.indexHonor h1 {
+    margin: 0;
+}
+
+.indexHonor ul {
+    overflow: hidden;
+}
+
+.indexHonor ul li {
+    float: left;
+}
+
+.indexHonor ul li img {
+    display: block;
+}
+
+.indexHonor ul li b {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.indexHonor ul li p {
+    margin: 0;
+    /*overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;*/
+}
+
+.indexHonorRl .indexHonorRl_body {
+    overflow: hidden;
+}
+
+.indexHonorRl .indexHonorRl_body .imgFrame {
+    float: left;
+}
+
+.indexHonorRl .indexHonorRl_body ul {
+    float: left;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+.indexHonorRl .imgFrame {}
+
+.indexHonorRl .imgFrame .imgFrame_child {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.indexHonorRl .imgFrame img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.indexHonorRl .indexHonorRl_body ul li {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.basic_text_editor .edit_content {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    min-height: 30px;
+}
+
+.basic_text_editor .edit_content textarea {
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+.basic_text_editor .edit_content textarea::-webkit-input-placeholder {
+    color: #999;
+}
+
+.basic_text_editor .editor_frame {
+    position: relative;
+    z-index: 1001;
+}
+
+#body_view {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background: #000;
+    opacity: 0.5;
+}
+
+.basic_text_editor_top {
+    z-index: 1001 !important;
+}
+
+.basic_picarticle_old {
+    position: relative;
+}
+
+.basic_picarticle_old .Prompt {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    line-height: 60px;
+    font-size: 20px;
+    text-align: center;
+    z-index: 100;
+}
+
+.basic_picarticle_old:hover .Prompt {
+    display: block;
+}
+
+/*.indexBanner .swiper-container-3d .swiper-slide-shadow-right {
+    background: rgba(0, 0, 0, 0.7);
+}*/
+
+.coverflow .swiper-slide {
+    transform: translate3d(0px, 0px, 0) !important;
+}
+
+.index_detailarticle .content_video {
+    background: #333;
+    text-align: center;
+    font-size: 50px;
+    color: #ccc;
+}
+
+.rowFixed:hover .editing_block_Mongolia {
+    opacity: 0.5;
+}
+
+.basic_text_editor .ke-edit {
+    overflow: hidden;
+    height: 100% !important;
+}
+
+.basic_text_editor .ke-statusbar {
+    display: none !important;
+}
+
+.basic_text_editor .ke-toolbar {
+    position: relative;
+    width: 295px;
+    height: 30px;
+    margin-top: -30px;
+    top: -7px;
+    left: -5px;
+}
+
+.basic_text_editor .ke-container {
+    overflow: visible;
+    width: 100%;
+}
+
+.basic_text_editor .ke-edit-iframe {
+    overflow: hidden !important;
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
+    height: auto !important;
+}
+
+.historical_record {
+    position: fixed;
+    background: #f2f2f2;
+    top: 60px;
+    width: 300px;
+    height: auto;
+    right: -330px;
+    bottom: 0;
+    z-index: 1000;
+    -webkit-box-shadow: 0 10px 30px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 30px 10px rgba(0, 0, 0, 0.5);
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.historical_record .myHeader {
+    padding-left: 10px;
+    background: #666;
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
+}
+
+.historical_record .myHeader .right_sidebar_close {
+    float: right;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.historical_record .myHeader .right_sidebar_close:hover{
+    color: #f00;
+}
+
+.historical_record .historical_record_list {
+    width: 100%;
+    padding: 0 10px;
+    padding-bottom: 10px;
+    overflow-y: auto;
+    background: #f2f2f2;
+    height: calc(100% - 80px);
+}
+
+.historical_record .historical_record_list li {
+    cursor: pointer;
+    width: 268px;
+    height: auto;
+    min-height: 40px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.historical_record .historical_record_list li .line {
+    width: 100%;
+    height: 40px;
+    background: #fff;
+    border-radius: 20px;
+    padding-right: 6px;
+}
+
+.historical_record .historical_record_list li b {
+    float: left;
+    width: 40px;
+    height: 40px;
+    border: 1px #ccc solid;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 16px;
+}
+
+.historical_record .historical_record_list li span {
+    float: left;
+    width: 100px;
+    margin-left: 10px;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.historical_record .historical_record_list li span:nth-of-type(1){
+    width: 120px;
+}
+.historical_record .historical_record_list li span:nth-of-type(2){
+    width: 80px;
+}
+
+.historical_record .historical_record_list li i {
+    float: right;
+    width: 20px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.historical_record .historical_record_list .sele>.line {
+    background: #ff8812 !important;
+}
+
+.historical_record .historical_record_list .sele>.line>b {
+    color: #fff;
+}
+
+.historical_record .historical_record_list .sele>.line>span {
+    color: #fff;
+}
+
+.historical_record .historical_record_list .sele>.line>i {
+    color: #fff;
+}
+
+.historical_sidebar_open {
+    right:2px !important;
+   /* transform: translateX(-332px);
+    -webkit-transform: translateX(-332px);
+    -o-transform: translateX(-332px);
+    -moz-transform: translateX(-332px);
+    -ms-transform: translateX(-332px);*/
+}
+
+.template_dialog_open {
+    transform: translateX(-332px);
+    -webkit-transform: translateX(-332px);
+    -o-transform: translateX(-332px);
+    -moz-transform: translateX(-332px);
+    -ms-transform: translateX(-332px);
+}
+
+.moduleAndRowList {
+    position: fixed;
+    background: #f2f2f2;
+    top: 60px;
+    width: 300px;
+    height: auto;
+    right: -330px;
+    bottom: 0;
+    z-index: 1000;
+    -webkit-box-shadow: 0 10px 30px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 30px 10px rgba(0, 0, 0, 0.5);
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.moduleAndRowList .myHeader {
+    padding-left: 10px;
+    background: #666;
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
+}
+
+.moduleAndRowList .myHeader .right_sidebar_close {
+    float: right;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.moduleAndRowList .myHeader .right_sidebar_close:hover{
+    color: #f00;
+}
+
+
+
+.moduleAndRowList .template_list {
+    width: 100%;
+    padding-bottom: 10px;
+    overflow-y: auto;
+    background: #f2f2f2;
+    height: calc(100% - 80px);
+}
+
+.moduleAndRowList .template_list li {
+    width: 88px;
+    height: 132px;
+    border: 1px #999 solid;
+    border-radius: 3px;
+    float: left;
+    margin-left: 8px;
+    margin-top: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.moduleAndRowList .template_list li .myImg {
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    vertical-align: middle;
+}
+
+.moduleAndRowList .template_list li .myImg img {
+    max-width: 100%;
+    max-height: 100px;
+}
+
+.moduleAndRowList .template_list li p {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: #999;
+    color: #fff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.moduleAndRowList .template_list li i {
+    position: absolute;
+    display: none;
+    text-align: center;
+    width: 28px;
+    height: 28px;
+    right: 0;
+    top: 0;
+    font-size: 14px;
+    line-height: 24px;
+    background-color: #acacac;
+    color: #fff;
+}
+
+.moduleAndRowList .template_list li:hover i {
+    display: block;
+}
+
+.moduleAndRowList .template_list li:hover {
+    border: 1px #f00 solid;
+}
+
+.row_group_show {
+    right:2px !important;
+    /*transform: translateX(-332px);
+    -webkit-transform: translateX(-332px);
+    -o-transform: translateX(-332px);
+    -moz-transform: translateX(-332px);
+    -ms-transform: translateX(-332px);*/
+}
+
+.basic_picarticle_a .border a>strong {
+    font-weight: normal;
+}
+.module .module_name{
+    display: none;
+    position: absolute;
+    right: 0;
+    bottom: -17px;
+    background: #666;
+    padding: 0 5px;
+    color: #fff;
+}
+.module:hover .module_name{
+    display: block;
+}
+
+div.setOne_border{
+    margin-top: 6px;
+    height: 34px;
+}
+div.setOne_border p {
+    width: 100%;
+    height: 34px;
+}
+div.setOne_border p strong{
+    float: left;
+}
+/*
+.mouseClass:hover{
+    box-sizing: border-box;
+    box-shadow: 0px 0 3px 3px #f00 inset;
+}*/
+
+.module_text_editor .ui-resizable-n{
+    display: none !important;
+}
+.module_text_editor .ui-resizable-s{
+    display: none !important;
+}
+.module_text_editor .ui-resizable-ne{
+    display: none !important;
+}
+.module_text_editor .ui-resizable-se{
+    display: none !important;
+}
+.module_text_editor .ui-resizable-sw{
+    display: none !important;
+}
+.module_text_editor .ui-resizable-nw{
+    display: none !important;
+}
+.PictureSelector .pic_body .pic_list{
+    height: 330px;
+}
+.PictureSelector .el-tabs--border-card>.el-tabs__content{
+    padding: 5px 0px;
+}
+.pic_body .pic_list ul li .imgName_p{
+    margin-top: 5px;
+    display: block;
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border: 1px transparent solid;
+    border-radius: 3px;
+}
+.el-color-picker__panel .el-color-dropdown__btns .el-color-dropdown__link-btn{
+   display: none;
+}
+
+.clear_z-index{
+    z-index: auto !important;
+}
+.PictureSelector .el-tabs--border-card{
+    border:none;
+}
+.bottomBar .el-tabs__content{
+    height: 128px;
+}
+.basic_picarticle_a .picSwiper_Prompt{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+
+}
+.myBorder .color{
+    width: 30px;
+}
+
+.special_moduleTop {
+    z-index: 1031 !important;
+}
+#productList .Mongolia a p strong i{
+    font-weight: bolder;
+}
+#productList .Mongolia a p strong em{
+    font-weight: normal;
+}
+.no_websql_Prompt p{
+    height: 40px;
+    line-height: 40px;
+    color: #f00;
+    text-align: center;
+}
+.layout_row > .ui-resizable-s{
+    height: 10px;
+    bottom: 0px;
+}
+
+.layout_row:hover > .ui-resizable-s{
+    border-bottom: 1px #52aeff solid !important;
+}
+
+.index_listandpage .listAndPage .listEveryOne .li_move{
+    overflow: hidden;
+}
+/*
+.index_listandpage .listAndPage .listEveryOne .Mongolia{
+    opacity: 1 !important;
+}*/
+.index_listandpage .listAndPage .listEveryOne .Mongolia i{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
+.basic_picarticle_a .Mongolia i{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.basic_picarticle_a .Mongolia em{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
+.DefaultStyleComponent .el-tabs__content{
+    padding: 0;
+    overflow: hidden;
+}
+
+.DefaultStyleComponent .Default_Prompt{
+    text-align: center;
+    line-height: 128px;
+    font-size: 16px;
+
+}
+.edit_list .inp{
+
+    float: left;
+}
+.edit_list .contentButton{
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.edit_list .contentButton button{
+    float: right;
+}
+.edit_list .inp strong{
+    float: left;
+}
+.edit_list .inp button{
+    float: left;
+    margin-right: 10px;
+}
+
+.Sortableitem_ing{
+    display: none !important;
+}
+.sort_Prompt{
+    position: fixed;
+    width: 100%;
+    height: 30px;
+    background: #477eff;
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+.layout_parent{
+    position:relative;
+}
+.layout_parent:hover .editing_block_Mongolia{
+    opacity: 0.6;
+}
+.select_laybox_now{
+    background: #8f9cae !important;
+}
+.select_laybox_now::after {
+    content: '松开鼠标完成新增组件！';
+    display: block;
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    font-size: 20px;
+    line-height: 60px;
+
+    color: #fff;
+}
+.all_logo{
+    float: left;
+    height: 60px;
+}
+.all_logo img{
+    float: left;
+    max-height: 100%;
+    margin-left:10px;
+}
+.all_logo span{
+    float: left;
+    height: 25px;
+    line-height:25px;
+    margin-left:10px;
+    background:#409EFF;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 17px;
+    margin-left: 10px;
+}
+.indexBanner{
+    position: relative;
+}
+
+
+.init_edit span i{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 20px;
+}

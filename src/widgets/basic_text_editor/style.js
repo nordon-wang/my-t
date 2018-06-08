@@ -1,0 +1,20 @@
+export default {
+  infor:{
+    width:170,
+      isEdit:false,
+      editorContent:'请双击此处，并输入内容，可在富文本框中调整样式！',
+  },
+  listArr:{
+    content:'请双击此处，并输入内容，可在富文本框中调整样式！'
+  },
+  effectsObj:{
+    type:''
+  },
+  animateObj:{
+    animatedType:'',
+    animatedDuration:0.5,
+    animatedDelay:0,
+    animatedIterationCount:false,
+    animatedState:'',
+  }
+};

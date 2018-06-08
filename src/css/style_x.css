@@ -1,0 +1,248 @@
+/*
+ * @Author: kaker.xutianxing 
+ * @Date: 2018-04-25 09:51:47 
+ * @Last Modified by: kaker.xutianxing
+ * @Last Modified time: 2018-05-31 19:14:38
+ */
+
+
+/* .main-wrapper .ruler.h {
+    position: fixed;
+    top: 0;
+} */
+
+.main-wrapper {
+    top: 60px;
+    position: absolute;
+    width: 100%;
+    height:calc(100% - 60px);
+    overflow: hidden;
+}
+
+.main-wrapper .ruler.h span {
+    box-sizing: content-box;
+}
+
+.main-wrapper .ruler.v span {
+    box-sizing: content-box;
+}
+
+.main-wrapper .ruler.v {
+    box-sizing: content-box;
+    display: none;
+}
+
+.main-wrapper .ruler.h {
+    box-sizing: content-box;
+    display: none;
+}
+
+.main-wrapper .ruler.h span.label,
+.main-wrapper .ruler.v span.label {
+    white-space: nowrap;
+}
+
+.main-wrapper .guide {
+    box-sizing: content-box;
+}
+
+.guideColor {
+    position: fixed;
+    top: 13px;
+    z-index: 1011;
+    display: none;
+}
+
+.guideColor>span {
+    float: left;
+    line-height: 35px;
+}
+
+.guideColorSelect {
+}
+
+.guideColor .el-color-picker__trigger {
+    width: 35px;
+    height: 35px;
+}
+
+#wangEdit {
+    height: auto;
+    margin-top: -41px;
+    min-width: 150px;
+    font-family: '微软雅黑';
+}
+
+#wangEdit .w-e-text-container {
+    height: auto !important;
+    border: none !important;
+}
+
+#wangEdit .w-e-text {
+    overflow: auto;
+    padding: 5px 9px 5px 5px;
+    margin-top: 10px;
+    cursor: text;
+}
+
+#wangEdit .w-e-text p,
+#wangEdit .w-e-text h1,
+#wangEdit .w-e-text h2,
+#wangEdit .w-e-text h3,
+#wangEdit .w-e-text h4,
+#wangEdit .w-e-text h5 {
+    margin: 0px;
+    /* line-height: normal; */
+}
+#wangEdit .w-e-text h1{
+    font-size: 32px;
+}
+#wangEdit .w-e-text h2{
+    font-size: 24px;
+}
+#wangEdit .w-e-text h3{
+    font-size: 18px;
+}
+#wangEdit .w-e-text h4{
+    font-size: 16px;
+}
+#wangEdit .w-e-text h5{
+    font-size: 14px;
+}
+.edit_content h1{
+    font-size: 32px;
+}
+.edit_content h2{
+    font-size: 24px;
+}
+.edit_content h3{
+    font-size: 18px;
+}
+.edit_content h4{
+    font-size: 16px;
+}
+.edit_content h5{
+    font-size: 14px;
+}
+#wangEdit .w-e-toolbar {
+    width: 300px;
+    background-color: #fff!important;
+}
+
+.star-agent {
+    text-align: center;
+    border-right: 1px dashed #e5e5e5;
+    border-bottom: 1px dashed #e5e5e5;
+    margin-bottom: -1px;
+    margin-right: -1px;
+    color: #333;
+    cursor: pointer;
+    background: #fff;
+    width: 83px;
+    height: 83px;
+    position: fixed;
+    z-index: 100;
+}
+
+.star-agent img {
+    height: 30px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.star-agent span {
+    display: block;
+    font-size: 12px;
+    text-align: center;
+}
+
+.module .module_width {
+    display: none;
+    position: absolute;
+    left: 0;
+    bottom: -17px;
+    background: #fff;
+    padding-left: 5px;
+    min-width: 110px;
+}
+
+.module .module_width span:nth-of-type(2) {
+    margin-right: 10px;
+}
+
+.star-collapse {
+    height: 590px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.star-collapse .el-collapse-item__header {
+    padding-left: 10px;
+}
+
+#wangEdit .w-e-panel-container input:-ms-input-placeholder{
+    color: #999;
+}
+
+#wangEdit .w-e-panel-container input::-webkit-input-placeholder{
+    color: #999;
+}
+.menu-btn:hover .menu-btn-tip{
+    display: block;
+}
+.menu-btn-tip{
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    width: auto;
+    border-radius: 4px;
+    padding: 10px;
+    z-index: 2000;
+    font-size: 12px;
+    line-height: 1.2;
+    background: #fff;
+    border: 1px solid #303133;
+    white-space: nowrap;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    background: #303133;
+    color: #fff;
+}
+.menu-btn-tip:after{
+    content: '';
+    display: inline-block;
+    height: 6px;
+    width: 6px;
+    border: 1px solid #000;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    background-color: #fff;
+    transform: rotate(45deg);
+    position: absolute;
+    top: -4px;    
+    right: calc(50% - 4px);
+    background: #303133;
+    color: #fff;
+}
+.ruler.v span:first-child span{
+    top: 0;
+}
+.dialog.open-dialog{
+    width: 300px;
+}
+#grid-list{
+    font-size: 14px;
+    max-width: 200px;
+    min-width: 130px;
+}
+.dialog.open-dialog .wrapper{
+    padding: 25px;
+    float: left;
+}
+.left_sidebar .left_sidebar_dialog {
+    height: 670px;
+}
+#app_child_frame{
+    position: relative;
+}

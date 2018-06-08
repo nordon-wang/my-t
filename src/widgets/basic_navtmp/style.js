@@ -1,0 +1,77 @@
+export default {
+    infor:{
+        navCustomStyle:true,
+        styleId:'nav1',
+        styleChoicIndex:'',
+        style:{
+            navBackground:'#f00',
+            navLiBackground:'#f60',
+            navColor:'#fff',
+            navBorderStyle:'dashed',
+            navBorderColor:'#f00',
+            navFontFamily:'Microsoft YaHei',
+            navFontWeight:'normal',
+            navFontAlign:'center',
+            navOneWidth:100,
+            navWidth:810,
+            navHeight:80,
+            navFontSize:16,
+            navBorderRadius:0
+        },
+        navSelectStyle:{
+            navSelectBackground:'#ccc',
+            navSelectColor:'#000',
+            navSelectFontSize:20,
+        },
+        dropDownStyle:{
+            dropDownBackground:'#f00',
+            dropDownColor:'#000',
+            dropDownHeight:40,
+            dropDownFontSize:12,
+            dropDownBackgroundImage:'',
+            isRepeat:'repeat',
+            opacity:1,
+            navMarginTopHeight:10,
+            navMarginBottomHeight:10,
+        },
+        dropDownSelectStyle:{
+            dropDownSelectBackground:'#ffa711',
+            dropDownSelectColor:'#f00',
+            dropDownSelectFontSize:16,
+            height:20,
+            opacity:0.5
+        },
+        icon:{
+            position:'center-left',
+            fontSize:16,
+            dropDownFontSize:12,
+            childIcon:'fa-anchor',
+            color:'#f00',
+
+        }
+    },
+    listArr:[],
+  animateObj:{
+    animatedType:'',
+    animatedDuration:0.5,
+    animatedDelay:0,
+    animatedIterationCount:false,
+    animatedState:'',
+  },
+    DefaultStyle:[
+        {
+            id:'s001',
+            name:'样式一',
+            style:'{"navCustomStyle":true,"styleId":"nav1","styleChoicIndex":"","style":{"navBackground":"#2B2B2B","navLiBackground":"#2B2B2B","navColor":"#FFFFFF","navBorderStyle":"dashed","navBorderColor":"#818181","navFontFamily":"MicrosoftYaHei","navFontWeight":"normal","navFontAlign":"center","navOneWidth":122,"navWidth":980,"navHeight":80,"navFontSize":16,"navBorderRadius":0},"navSelectStyle":{"navSelectBackground":"#ACACAC","navSelectColor":"#2B2B2B","navSelectFontSize":16},"dropDownStyle":{"navMarginBottomHeight":10,"navMarginTopHeight":10,"dropDownBackgroundImage":"","isRepeat":"repeat","opacity":1,"dropDownBackground":"#f00","dropDownColor":"#fff","dropDownHeight":40,"dropDownFontSize":12},"dropDownSelectStyle":{"opacity":1,"height":20,"dropDownSelectBackground":"#e3e3e3","dropDownSelectColor":"#fff","dropDownSelectFontSize":16},"icon":{"color":"#f00","position":"center-left","fontSize":16,"dropDownFontSize":12,"childIcon":""},"effectsObj":{"type":"","icon":"fa-adjust","iconSize":50,"iconColor":"#fff","changeSrc":"","borderStyle":"solid","borderWidth":1,"borderColor":"#ccc","deg":90,"zoom":1.5,"distance":20}}',
+            img:'/static/image/DefaultStyle/nav1.jpg'
+        },
+
+        {
+            id:'s002',
+            name:'样式二',
+            style:'{"navCustomStyle":true,"styleId":"nav1","styleChoicIndex":"","style":{"navBackground":"#FFFFFF","navLiBackground":"#FFFFFF","navColor":"#FF0000","navBorderStyle":"dashed","navBorderColor":"#FFFFFF","navFontFamily":"MicrosoftYaHei","navFontWeight":"normal","navFontAlign":"center","navOneWidth":122,"navWidth":980,"navHeight":80,"navFontSize":16,"navBorderRadius":0},"navSelectStyle":{"navSelectBackground":"#FF0000","navSelectColor":"#FFFFFF","navSelectFontSize":16},"dropDownStyle":{"navMarginBottomHeight":10,"navMarginTopHeight":10,"dropDownBackgroundImage":"","isRepeat":"repeat","opacity":1,"dropDownBackground":"#f00","dropDownColor":"#fff","dropDownHeight":40,"dropDownFontSize":12},"dropDownSelectStyle":{"opacity":1,"height":20,"dropDownSelectBackground":"#e3e3e3","dropDownSelectColor":"#fff","dropDownSelectFontSize":16},"icon":{"color":"#f00","position":"center-left","fontSize":16,"dropDownFontSize":12,"childIcon":""},"effectsObj":{"type":"","icon":"fa-adjust","iconSize":50,"iconColor":"#fff","changeSrc":"","borderStyle":"solid","borderWidth":1,"borderColor":"#ccc","deg":90,"zoom":1.5,"distance":20}}',
+            img:'/static/image/DefaultStyle/nav2.jpg'
+        },
+    ],
+
+};
